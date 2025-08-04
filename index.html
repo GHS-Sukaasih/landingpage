@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Warga - Griya Hasanah Sukaasih</title>
+    <style>
+        /* (Seluruh kode CSS dari lampiran sebelumnya tetap sama) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2d7d32 0%, #1b5e20 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 3px solid #2d7d32;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2d7d32;
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #2d7d32 0%, #1b5e20 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(45, 125, 50, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2d7d32 0%, #1b5e20 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)" /></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2d7d32;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2d7d32;
+            transform: translateY(-3px);
+        }
+
+        /* Announcement Section */
+        .announcements {
+            padding: 5rem 1rem;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .section-title p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .announcement-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .announcement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #2d7d32;
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .announcement-badge {
+            background: #2d7d32;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .announcement-date {
+            color: #64748b;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .announcement-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .announcement-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Management Section */
+        .management {
+            padding: 5rem 1rem;
+            background: white;
+        }
+
+        .management-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .management-card {
+            background: linear-gradient(135deg, #2d7d32 0%, #1b5e20 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .management-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="25" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .management-card .position {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .management-card .name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .management-card .contact {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Facilities Section */
+        .facilities {
+            padding: 5rem 1rem;
+            background: #f8fafc;
+        }
+
+        .facilities-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .facility-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .facility-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2d7d32 0%, #1b5e20 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .facility-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .facility-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Payment Section */
+        .payment {
+            padding: 5rem 1rem;
+            background: white;
+        }
+
+        .payment-info {
+            background: linear-gradient(135deg, #2d7d32 0%, #1b5e20 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .payment-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .payment-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .payment-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-item .amount {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        .bank-info {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .bank-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .bank-details {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .bank-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Financial Section */
+        .financial-info {
+            padding: 5rem 1rem;
+            background: #f8fafc;
+        }
+        
+        .financial-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .financial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .financial-card h3 {
+            font-size: 1.5rem;
+            color: #2d7d32;
+            margin-bottom: 1rem;
+        }
+
+        .financial-card p {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1rem;
+            background: #f8fafc;
+        }
+
+        .contact-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2d7d32;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        /* Schedule Section */
+        .schedule {
+            padding: 5rem 1rem;
+            background: linear-gradient(135deg, #2d7d32 0%, #1b5e20 100%);
+        }
+
+        .schedule .section-title h2,
+        .schedule .section-title p {
+            color: white;
+        }
+
+        .schedule-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .schedule-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .schedule-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .schedule-details {
+            display: grid;
+            gap: 0.5rem;
+        }
+        
+        .schedule-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Visi Misi Section */
+        .vision-mission {
+            padding: 5rem 1rem;
+            background: #f8fafc;
+        }
+
+        .vision-mission-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vision-card, .mission-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #2d7d32;
+        }
+
+        .vision-card h3, .mission-card h3 {
+            font-size: 1.5rem;
+            color: #2d7d32;
+            margin-bottom: 1rem;
+        }
+
+        .mission-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .mission-card li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #64748b;
+        }
+
+        .mission-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2d7d32;
+            font-weight: bold;
+        }
+
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .nav-menu a {
+                color: #374151;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+
+            .nav-menu a:hover {
+                color: #2d7d32;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .announcement-grid,
+            .management-grid,
+            .facilities-grid,
+            .contact-grid,
+            .schedule-grid,
+            .vision-mission-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .payment-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .urgent {
+            background: #dc2626 !important;
+        }
+
+        .important {
+            background: #f59e0b !important;
+        }
+
+        .info {
+            background: #2d7d32 !important;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <div class="logo-circle">GHS</div>
+                <div class="logo-text">
+                    <div class="logo-main">Griya Hasanah</div>
+                    <div class="logo-sub">Sukaasih</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="#home">Beranda</a>
+                <a href="#vision-mission">Visi & Misi</a>
+                <a href="#announcements">Pengumuman</a>
+                <a href="#management">Pengurus</a>
+                <a href="#facilities">Fasilitas</a>
+                <a href="#payment">Iuran</a>
+                <a href="#financial-info">Keuangan</a>
+                <a href="#contact">Kontak</a>
+            </div>
+            <a href="#contact" class="cta-btn">Hubungi Pengurus</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Portal Warga<br>Griya Hasanah Sukaasih</h1>
+            <p>Pusat informasi terpadu untuk warga perumahan. Akses informasi terkini, pengumuman penting, dan layanan warga dalam satu platform.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number">64</span>
+                    <span class="stat-label">Rumah</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Blok</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2021</span>
+                    <span class="stat-label">Berdiri</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Layanan</span>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#announcements" class="btn-primary">Lihat Pengumuman</a>
+                <a href="#payment" class="btn-secondary">Info Iuran</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision-mission" class="vision-mission">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Visi & Misi</h2>
+                <p>Landasan dan tujuan kami dalam membangun komunitas yang harmonis</p>
+            </div>
+            <div class="vision-mission-grid">
+                <div class="vision-card scroll-fade">
+                    <h3>Visi</h3>
+                    <p>Menjadikan Griya Hasanah Sukaasih sebagai komunitas perumahan yang **Islami, modern, harmonis, aman, dan nyaman** bagi seluruh warga.</p>
+                </div>
+                <div class="mission-card scroll-fade">
+                    <h3>Misi</h3>
+                    <ul>
+                        <li>Menegakkan nilai-nilai keislaman dan kekeluargaan dalam setiap interaksi warga.</li>
+                        <li>Menciptakan lingkungan yang bersih, asri, dan teratur dengan pengelolaan fasilitas yang profesional.</li>
+                        <li>Menjaga keamanan dan ketertiban lingkungan melalui partisipasi aktif seluruh warga.</li>
+                        <li>Membangun komunikasi yang transparan dan efektif antara pengurus dan warga.</li>
+                        <li>Mengembangkan kegiatan sosial, pendidikan, dan keagamaan untuk mempererat tali silaturahmi.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="announcements" class="announcements">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Pengumuman Terkini</h2>
+                <p>Informasi penting dan update kegiatan perumahan</p>
+            </div>
+            <div class="announcement-grid">
+                <div class="announcement-card scroll-fade">
+                    <div class="announcement-header">
+                        <div class="announcement-badge urgent">PENTING</div>
+                        <div class="announcement-date">10 Agustus 2025</div>
+                    </div>
+                    <h3>Kerja Bakti Persiapan Lomba Agustusan</h3>
+                    <p>Seluruh warga diharapkan berpartisipasi dalam kerja bakti untuk persiapan lomba 17 Agustusan. Kegiatan dimulai pukul 07:00 WIB. Mari bersama-sama mempersiapkan perumahan kita untuk menyambut hari kemerdekaan!</p>
+                </div>
+                <div class="announcement-card scroll-fade">
+                    <div class="announcement-header">
+                        <div class="announcement-badge info">JADWAL</div>
+                        <div class="announcement-date">Minggu Ini</div>
+                    </div>
+                    <h3>Jadwal Ronda Malam</h3>
+                    <p>Minggu ini giliran **Blok B dan C** untuk ronda malam (22:00 - 03:30). Selanjutnya Blok D, kemudian Blok E, dan terakhir Blok A. Mari jaga keamanan bersama!</p>
+                </div>
+                <div class="announcement-card scroll-fade">
+                    <div class="announcement-header">
+                        <div class="announcement-badge important">REMINDER</div>
+                        <div class="announcement-date">Setiap Bulan</div>
+                    </div>
+                    <h3>Pembayaran Iuran Bulanan</h3>
+                    <p>Diingatkan kepada seluruh warga untuk melakukan pembayaran iuran bulanan sebelum tanggal 10 setiap bulannya. Transfer dapat dilakukan ke rekening bendahara yang tertera di bagian informasi iuran.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="management" class="management">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Pengurus Perumahan</h2>
+                <p>Tim pengurus yang siap melayani warga 24/7</p>
+            </div>
+            <div class="management-grid">
+                <div class="management-card scroll-fade">
+                    <div class="position">Ketua Rukun Tetangga</div>
+                    <div class="name">Asep Safrudin</div>
+                    <div class="contact">
+                        <div>📱 085717223889</div>
+                        <div>Koordinator & Pengambil Keputusan</div>
+                    </div>
+                </div>
+                <div class="management-card scroll-fade">
+                    <div class="position">Sekretaris</div>
+                    <div class="name">Boby</div>
+                    <div class="contact">
+                        <div>📝 Administrasi & Dokumentasi</div>
+                        <div>Hubungi melalui Ketua RT</div>
+                    </div>
+                </div>
+                <div class="management-card scroll-fade">
+                    <div class="position">Bendahara</div>
+                    <div class="name">Yusup Suprianto</div>
+                    <div class="contact">
+                        <div>💰 Pengelola Keuangan</div>
+                        <div>BNI: 0275802987</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Jadwal Kegiatan</h2>
+                <p>Aktivitas rutin dan kegiatan warga perumahan</p>
+            </div>
+            <div class="schedule-grid">
+                <div class="schedule-card scroll-fade">
+                    <h3>🛡️ Jadwal Ronda Malam</h3>
+                    <div class="schedule-details">
+                        <div class="schedule-detail">
+                            <span>Waktu</span>
+                            <span>22:00 - 03:30 WIB</span>
+                        </div>
+                        <div class="schedule-detail">
+                            <span>Minggu Depan</span>
+                            <span>Blok B & C</span>
+                        </div>
+                        <div class="schedule-detail">
+                            <span>2 Minggu Lagi</span>
+                            <span>Blok D</span>
+                        </div>
+                        <div class="schedule-detail">
+                            <span>3 Minggu Lagi</span>
+                            <span>Blok E</span>
+                        </div>
+                        <div class="schedule-detail">
+                            <span>4 Minggu Lagi</span>
+                            <span>Blok A</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="schedule-card scroll-fade">
+                    <h3>🏠 Kegiatan Perumahan</h3>
+                    <div class="schedule-details">
+                        <div class="schedule-detail">
+                            <span>Kerja Bakti</span>
+                            <span>10 Agustus 2025</span>
+                        </div>
+                        <div class="schedule-detail">
+                            <span>Lomba 17 Agustusan</span>
+                            <span>17 Agustus 2025</span>
+                        </div>
+                        <div class="schedule-detail">
+                            <span>Rapat Bulanan</span>
+                            <span>Setiap Akhir Bulan</span>
+                        </div>
+                        <div class="schedule-detail">
+                            <span>Posyandu</span>
+                            <span>Setiap tanggal 25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="facilities">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Fasilitas Perumahan</h2>
+                <p>Sarana dan prasarana yang tersedia untuk kenyamanan warga</p>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-card scroll-fade">
+                    <div class="facility-icon">⚽</div>
+                    <h3>Lapangan Serbaguna</h3>
+                    <p>Lapangan multifungsi untuk kegiatan olahraga, senam, dan acara komunitas.</p>
+                </div>
+                <div class="facility-card scroll-fade">
+                    <div class="facility-icon">🕌</div>
+                    <h3>Masjid Al-Hasanah</h3>
+                    <p>Tempat ibadah yang nyaman dan bersih untuk sholat berjamaah dan kegiatan keagamaan lainnya.</p>
+                </div>
+                <div class="facility-card scroll-fade">
+                    <div class="facility-icon">🌳</div>
+                    <h3>Taman Hijau</h3>
+                    <p>Area terbuka hijau untuk bermain anak-anak dan bersantai bersama keluarga.</p>
+                </div>
+                <div class="facility-card scroll-fade">
+                    <div class="facility-icon">🚨</div>
+                    <h3>Pos Keamanan</h3>
+                    <p>Fasilitas untuk mendukung kegiatan ronda dan menjaga keamanan lingkungan 24 jam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="payment" class="payment">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Informasi Iuran Warga</h2>
+                <p>Detail biaya iuran bulanan dan cara pembayarannya</p>
+            </div>
+            <div class="payment-info scroll-fade">
+                <h3>Iuran Wajib Bulanan</h3>
+                <div class="payment-grid">
+                    <div class="payment-item">
+                        <h4>Iuran Sampah</h4>
+                        <span class="amount">Rp30.000</span>
+                    </div>
+                    <div class="payment-item">
+                        <h4>Iuran Keamanan</h4>
+                        <span class="amount">Rp50.000</span>
+                    </div>
+                    <div class="payment-item">
+                        <h4>Iuran Kas</h4>
+                        <span class="amount">Rp20.000</span>
+                    </div>
+                    <div class="payment-item">
+                        <h4>Iuran Dana Sosial</h4>
+                        <span class="amount">Rp10.000</span>
+                    </div>
+                </div>
+                <h3 style="margin-top: 2rem;">Sumbangan Lainnya</h3>
+                <div class="payment-grid">
+                    <div class="payment-item">
+                        <h4>Sumbangan Masjid</h4>
+                        <span class="amount">Sukarela</span>
+                    </div>
+                    <div class="payment-item">
+                        <h4>Sumbangan Jimpitan Ronda</h4>
+                        <span class="amount">Sukarela</span>
+                    </div>
+                </div>
+                <div class="bank-info">
+                    <h4>Transfer ke Rekening Bendahara</h4>
+                    <div class="bank-details">
+                        <div class="bank-detail">
+                            <span>Bank</span>
+                            <span>BNI</span>
+                        </div>
+                        <div class="bank-detail">
+                            <span>Nomor Rekening</span>
+                            <span>0275802987 <button class="copy-btn">Salin</button></span>
+                        </div>
+                        <div class="bank-detail">
+                            <span>Atas Nama</span>
+                            <span>Yusup Suprianto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="financial-info" class="financial-info">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Informasi Keuangan</h2>
+                <p>Akses transparansi laporan keuangan perumahan</p>
+            </div>
+            <div class="financial-card scroll-fade">
+                <h3>Laporan Transaksi Harian</h3>
+                <p>Lihat detail pemasukan dan pengeluaran kas perumahan secara transparan dan real-time.</p>
+                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSbsAg14hr92AiedTDUV_2I9DRfHFXzla-B7X_j1fdKYLp1RBbnEzfAoNduW5oYHWfzY3eDqSrZAIGL/pubhtml?gid=1729858362&single=true" target="_blank" class="btn-primary" style="margin-top: 1rem;">Lihat Laporan</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title scroll-fade">
+                <h2>Hubungi Kami</h2>
+                <p>Sampaikan pertanyaan, masukan, atau laporan Anda</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card scroll-fade">
+                    <h3>Pusat Bantuan</h3>
+                    <p>Layanan cepat untuk semua kebutuhan warga.</p>
+                    <a href="https://wa.me/6285717223889" target="_blank" class="btn-primary" style="margin-top: 1rem;">WhatsApp Ketua RT</a>
+                </div>
+                <div class="contact-form scroll-fade">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Nomor HP</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Perihal</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Pilih salah satu</option>
+                                <option value="laporan">Laporan / Pengaduan</option>
+                                <option value="saran">Saran & Masukan</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6285717223889" target="_blank" class="fab">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-whatsapp"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </a>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo-container" style="justify-content: center; margin-bottom: 1rem;">
+                <div class="logo-circle">GHS</div>
+                <div class="logo-text">
+                    <div class="logo-main">Griya Hasanah</div>
+                    <div class="logo-sub">Sukaasih</div>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Beranda</a>
+                <a href="#vision-mission">Visi & Misi</a>
+                <a href="#announcements">Pengumuman</a>
+                <a href="#management">Pengurus</a>
+                <a href="#facilities">Fasilitas</a>
+                <a href="#payment">Iuran</a>
+                <a href="#financial-info">Keuangan</a>
+                <a href="#contact">Kontak</a>
+            </div>
+            <p style="color: #94a3b8; font-size: 0.9rem;">&copy; 2025 Griya Hasanah Sukaasih. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animation to elements
+        const scrollElements = document.querySelectorAll('.scroll-fade');
+
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+
+        // Copy bank account number to clipboard
+        document.querySelector('.copy-btn').addEventListener('click', function() {
+            const accountNumber = '0275802987';
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                alert('Nomor rekening berhasil disalin!');
+            }).catch(err => {
+                console.error('Gagal menyalin: ', err);
+            });
+        });
+    </script>
+</body>
+</html>
