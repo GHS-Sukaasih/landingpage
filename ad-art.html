@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD/ART Paguyuban Perumahan Griya Hasanah Sukaasih</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .adart-header {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: #ffffff;
+            padding: 7rem 1rem 3.5rem;
+            text-align: center;
+        }
+        .adart-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+        .adart-header p {
+            font-size: 1.1rem;
+            color: #e8f5e9;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        .adart-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .adart-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+        }
+        .adart-btn-light {
+            background: #ffffff;
+            color: #1b5e20;
+        }
+        .adart-btn-light:hover {
+            background: #f1f8e9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .adart-btn-outline {
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        .adart-btn-outline:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* Container Layout */
+        .adart-layout {
+            max-width: 1240px;
+            margin: 2.5rem auto 4rem;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+        
+        /* Sidebar Sticky */
+        .adart-sidebar {
+            position: sticky;
+            top: 90px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .search-box {
+            width: 100%;
+            padding: 0.6rem 0.85rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box:focus {
+            border-color: #2e7d32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+        }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.88rem;
+        }
+        .toc-list li {
+            margin-bottom: 0.4rem;
+        }
+        .toc-list a {
+            color: #475569;
+            text-decoration: none;
+            display: block;
+            padding: 0.35rem 0.5rem;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            line-height: 1.4;
+        }
+        .toc-list a:hover {
+            background: #f1f8e9;
+            color: #1b5e20;
+            padding-left: 0.75rem;
+        }
+        .toc-group-title {
+            font-weight: 700;
+            color: #1b5e20;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Document */
+        .adart-content {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            line-height: 1.75;
+            color: #334155;
+        }
+        .adart-content h1 {
+            font-size: 1.75rem;
+            color: #1b5e20;
+            border-bottom: 3px solid #2e7d32;
+            padding-bottom: 0.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .adart-content h1:first-of-type {
+            margin-top: 0;
+        }
+        .adart-content h2 {
+            font-size: 1.35rem;
+            color: #2e7d32;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-left: 0.6rem;
+            border-left: 4px solid #4caf50;
+        }
+        .adart-content h3 {
+            font-size: 1.15rem;
+            color: #1e293b;
+            margin-top: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .adart-content h4 {
+            font-size: 1rem;
+            color: #475569;
+            margin-top: 0.25rem;
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+        .adart-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .adart-content ol, .adart-content ul {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        .adart-content li {
+            margin-bottom: 0.5rem;
+        }
+        .adart-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .adart-content th, .adart-content td {
+            border: 1px solid #cbd5e1;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+        .adart-content th {
+            background: #f1f8e9;
+            color: #1b5e20;
+            font-weight: 600;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 0.1rem 0.2rem;
+            border-radius: 3px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .adart-layout {
+                grid-template-columns: 1fr;
+            }
+            .adart-sidebar {
+                position: static;
+                max-height: none;
+            }
+            .adart-content {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        @media print {
+            .header, .footer, .adart-sidebar, .adart-actions, .fab {
+                display: none !important;
+            }
+            .adart-header {
+                background: none !important;
+                color: #000 !important;
+                padding: 1rem 0 !important;
+            }
+            .adart-header h1 {
+                color: #000 !important;
+            }
+            .adart-layout {
+                display: block !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .adart-content {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <div class="logo-circle">GHS</div>
+                <div class="logo-text">
+                    <div class="logo-main">Griya Hasanah</div>
+                    <div class="logo-sub">Sukaasih</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html#home">Beranda</a>
+                <a href="index.html#vision-mission">Visi & Misi</a>
+                <a href="index.html#announcements">Pengumuman</a>
+                <a href="index.html#management">Pengurus</a>
+                <a href="index.html#facilities">Fasilitas</a>
+                <a href="index.html#payment">Iuran</a>
+                <a href="index.html#financial-info">Keuangan</a>
+                <a href="ad-art.html" style="color: #2d7d32; font-weight: 700;">AD/ART</a>
+                <a href="index.html#gallery">Galeri</a>
+                <a href="index.html#contact">Kontak</a>
+            </div>
+            <a href="index.html#contact" class="cta-btn">Hubungi Pengurus</a>
+        </nav>
+    </header>
+
+    <div class="adart-header">
+        <h1>Anggaran Dasar & Anggaran Rumah Tangga (AD/ART)</h1>
+        <p>Paguyuban Perumahan Griya Hasanah Sukaasih — Desa Sukaasih, Kecamatan Sukatani, Kabupaten Bekasi, Provinsi Jawa Barat</p>
+        <div class="adart-actions">
+            <a href="index.html" class="adart-btn adart-btn-outline"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+            <button onclick="window.print()" class="adart-btn adart-btn-light"><i class="fas fa-print"></i> Cetak / Simpan PDF</button>
+            <a href="#bagian-1" class="adart-btn adart-btn-outline"><i class="fas fa-book-open"></i> Mulai Baca</a>
+        </div>
+    </div>
+
+    <div class="adart-layout">
+        <aside class="adart-sidebar">
+            <div class="sidebar-title">
+                <span><i class="fas fa-list-ul"></i> Daftar Isi</span>
+            </div>
+            <input type="text" id="clause-search" class="search-box" placeholder="Cari pasal, aturan, iuran...">
+            <div id="toc-container">
+                <!-- TOC links will be dynamically populated/linked -->
+                <div class="toc-group-title">Pendahuluan</div>
+                <ul class="toc-list">
+                    <li><a href="#mukadimah">Mukadimah</a></li>
+                </ul>
+
+                <div class="toc-group-title">Bagian 1: Anggaran Dasar</div>
+                <ul class="toc-list">
+                    <li><a href="#bab-i">BAB I: Nama, Waktu & Kedudukan</a></li>
+                    <li><a href="#bab-ii">BAB II: Visi, Misi, Asas & Usaha</a></li>
+                    <li><a href="#bab-organisasi">BAB Organisasi Kepengurusan</a></li>
+                    <li><a href="#bab-iii">BAB III: Pemilihan Ketua</a></li>
+                    <li><a href="#bab-iv">BAB IV: Keuangan Paguyuban</a></li>
+                    <li><a href="#bab-v">BAB V: Kerja Bakti / Gotong Royong</a></li>
+                    <li><a href="#bab-vi">BAB VI: Keamanan & Siskamling</a></li>
+                    <li><a href="#bab-vii">BAB VII: Pelaksanaan Hari Besar</a></li>
+                    <li><a href="#bab-viii">BAB VIII: Permasalahan & Sanksi</a></li>
+                    <li><a href="#bab-ix">BAB IX: Perubahan Anggaran Dasar</a></li>
+                    <li><a href="#bab-x">BAB X: Penutup</a></li>
+                </ul>
+
+                <div class="toc-group-title">Bagian 2: Anggaran Rumah Tangga</div>
+                <ul class="toc-list">
+                    <li><a href="#art-pasal-1">Pasal 1: Pengertian</a></li>
+                    <li><a href="#art-pasal-2">Pasal 2: Struktur Organisasi</a></li>
+                    <li><a href="#art-pasal-3">Pasal 3: Tugas & Tanggung Jawab</a></li>
+                    <li><a href="#art-pasal-4">Pasal 4: Hak & Kewajiban Warga</a></li>
+                    <li><a href="#art-pasal-5">Pasal 5: Pengelolaan Kas RT</a></li>
+                    <li><a href="#art-pasal-6">Pasal 6: Kriteria Bantuan Warga</a></li>
+                    <li><a href="#art-pasal-7">Pasal 7: Renovasi Rumah</a></li>
+                    <li><a href="#art-pasal-8">Pasal 8: Tata Tertib Berkendara</a></li>
+                    <li><a href="#art-pasal-9">Pasal 9: Perubahan ART</a></li>
+                </ul>
+
+                <div class="toc-group-title">Lampiran Dokumen</div>
+                <ul class="toc-list">
+                    <li><a href="#lampiran-ipl">1. Kebijakan IPL</a></li>
+                    <li><a href="#lampiran-psu">2. Formulir Inventarisasi PSU</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="adart-content" id="document-content">
+            <p><strong>ANGGARAN DASAR DAN ANGGARAN RUMAH TANGGA (AD/ART)</strong></p>
+<p><strong>PAGUYUBAN PERUMAHAN GRIYA HASANAH SUKAASIH</strong></p>
+<p><strong>DESA SUKAASIH</strong></p>
+<p><strong>KECAMATAN SUKATANI KABUPATEN BEKASI</strong></p>
+<p><strong>PROVINSI JAWA BARAT</strong></p>
+<p><strong>TATA KELOLA AD/ART</strong></p>
+<h4>PERUMAHAN GRIYA HASANAH SUKAASIH</h4>
+<p><strong>DESA SUKAASIH KECAMATAN   SUKATANI</strong></p>
+<p><strong>KABUPATEN BEKASI JAWA BARAT</strong></p>
+<h2 id="mukadimah">MUKADIMAH</h2>
+<p>Bahwa untuk kelancaran pelaksanaan tugas dan fungsi pemerintahan di perumahan Griya Hasanah Sukaasih, dan terwujudnya kerukunan antar warga perumahan yang harmonis, toleran, tentram dan penuh kedamaian, serta dalam rangka turut berpartisipasi mewujudkan persatuan dan kesatuan demi tercapainya pembangunan bangsa dan negara Indonesia yang berasaskan Pancasila dan Undang-Undang Dasar 1945. </p>
+<p>Harmonis dapat diartikan sebagai suatu keadaan dimana setiap orang dapat saling merangkul dalam berbagai hal sehingga tercipta keselarasan dan kebahagiaan hidup bersama. Bertoleransi adalah sikap saling menghormati dan menghargai satu sama lain atas perbedaan pandangan dalam menjalankan keyakinan. Tenteram berarti suasana yang tenang dan damai jauh dari segala pertentangan. dan Kedamaian berarti dirahmati Allah Swt, dijauhi dari segala kesulitan, musibah dan bencana. </p>
+<p>Maka dengan penuh rasa kesadaran, kebersamaan, kebanggaan dan kepedulian, Warga Perumahan Griya Hasanah Sukaasih Desa Sukaasih Kecamatan Sukatani Kabupaten Bekasi Jawa Barat bersepakat dan berkomitmen untuk menyatukan hati, pikiran dan perhatian terhadap upaya-upaya yang diperlukan guna mewujudkan tujuan bersama dalam wadah yang tertulis, agar dapat dijadikan pedoman bagi seluruh warga perumahan Griya Hasanah Sukaasih dalam menjalankan kehidupan bertetangga.</p>
+<h1 id="bagian-1">BAGIAN 1: ANGGARAN DASAR (AD)</h1>
+<p><strong>ANGGARAN DASAR</strong></p>
+<h2 id="bab-i">BAB I</h2>
+<h4>NAMA, WAKTU DAN KEDUDUKAN</h4>
+<h3>AD - Pasal 1</h3>
+<ol>
+<li>Organisasi ini bernama Paguyuban Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Organisasi ini didirikan di Perumahan Griya Hasanah Sukaasih Desa Sukaasih Kecamatan Sukatani Kabupaten Bekasi pada Tahun 2026.  </li>
+<li>Organisasi ini berkedudukan di Perumahan Griya Hasanah Sukaasih Desa Sukaasih Kecamatan Sukatani Kabupaten Bekasi.</li>
+</ol>
+<h2 id="bab-ii">BAB II</h2>
+<h4>VISI DAN MISI, ASAS, DASAR, TUJUAN, PRINSIP DAN USAHA</h4>
+<h3>AD - Pasal 2</h3>
+<h4>Visi dan Misi</h4>
+<ol>
+<li>Visi Paguyuban Perumahan Griya Hasanah Sukaasih adalah mewujudkan Perumahan Griya Hasanah Sukaasih sebagai lingkungan yang harmonis, aman, tertata rapi, bersih, indah dan berkomitmen melalui semangat kebersamaan dan gotong royong.  </li>
+<li>Misi Paguyuban Perumahan Griya Hasanah Sukaasih adalah:  </li>
+<li>Menumbuhkan rasa saling peduli, menghargai, dan mendukung antarwarga.  </li>
+<li>Membangun sistem keamanan lingkungan berbasis partisipasi aktif warga.  </li>
+<li>Menggalakkan program kebersihan, penghijauan, dan perawatan fasilitas bersama.  </li>
+<li>Menetapkan tata tertib lingkungan yang adil dan mengedepankan musyawarah.  </li>
+<li>Mendorong berbagai kegiatan sosial, budaya, dan olahraga untuk mempererat hubungan antar warga.  </li>
+<li>Memberdayakan potensi warga untuk berkontribusi dalam pengembangan lingkungan yang berkelanjutan.</li>
+</ol>
+<h3>AD - Pasal 3</h3>
+<h4>Asas dan Dasar</h4>
+<p>Asas dan Dasar Paguyuban Perumahan Griya Hasanah Sukaasih adalah Pancasila dan Undang-Undang Dasar 1945.</p>
+<h3>AD - Pasal 4</h3>
+<h4>Tujuan</h4>
+<p>Paguyuban Perumahan Griya Hasanah Sukaasih bertujuan untuk menjaga keamanan dan kenyamanan lingkungan, kekeluargaan, kerukunan, kerjasama dan gotong royong.</p>
+<h3>AD - Pasal 5</h3>
+<h4>Prinsip</h4>
+<p>Dalam menjalankan organisasi Paguyuban Perumahan Griya Hasanah Sukaasih melaksanakan prinsip-prinsip sebagai berikut : </p>
+<ol>
+<li>Keanggotaan bersifat mengikat seluruh warga Paguyuban Perumahan Griya Hasanah Sukaasih (Penghuni tetap, dan kontrak).  </li>
+<li>Pengelolaan dilaksanakan secara demokratis.  </li>
+<li>Kegiatan sosial kemasyarakatan.  </li>
+<li>Swadaya dan mandiri.  </li>
+<li>Kerjasama, gotong royong, kekeluargaan dan kebersamaan dengan sesama warga, Ramah dan peduli terhadap lingkungan.</li>
+</ol>
+<h3>AD - Pasal 6</h3>
+<h4>Kegiatan</h4>
+<p>Untuk mencapai tujuan yang tercantum pada Pasal 5, maka Paguyuban Perumahan Griya Hasanah Sukaasih mengusahakan kegiatan-kegiatan sebagai berikut: </p>
+<ol>
+<li>Pengurus Paguyuban berwenang menjadi perwakilan Warga dalam proses penyerahan Prasarana, Sarana, dan Utilitas Umum (PSU) Perumahan kepada Pemerintah Daerah sesuai Permendagri No. 15 Tahun 2026, termasuk dalam hal PSU Terlantar, serta mengelola dan memelihara PSU tersebut untuk mendukung keberlangsungan lingkungan.  </li>
+<li>Mengelola, mendata, dan memelihara Prasarana, Sarana, dan Utilitas Umum (PSU) perumahan sesuai standar teknis untuk mendukung keberlangsungan lingkungan dan memfasilitasi proses penyerahan aset kepada Pemerintah Daerah Kabupaten Bekasi sesuai dengan ketentuan perundang-undangan yang berlaku.  </li>
+<li>Melakukan pendataan kependudukan secara berkala.  </li>
+<li>Melaksanakan pengamanan dan ketertiban lingkungan.  </li>
+<li>Mengurus kebersihan, keindahan dan menjaga kelestarian lingkungan.  </li>
+<li>Menjaga ketentraman, kerukunan, bergotong royong dan saling menghormati antar warga.  </li>
+<li>Meningkatkan sarana dan prasarana warga.  </li>
+<li>Melaksanakan pembinaan dan pengembangan kegiatan sosial kemasyarakatan.  </li>
+<li>Mengadakan pertemuan rutin.  </li>
+<li>Melakukan kegiatan lain yang tidak bertentangan dengan peraturan perundangan yang berlaku untuk kepentingan organisasi.</li>
+</ol>
+<h2 id="bab-organisasi">BAB II: ORGANISASI KEPENGURUSAN</h2>
+<h4>ORGANISASI KEPENGURUSAN</h4>
+<h3>AD - Pasal 7</h3>
+<ol>
+<li>Organisasi Kepengurusan adalah Kepengurusan Paguyuban Perumahan Griya Hasanah Sukaasih Desa Sukaasih Kecamatan Sukatani Kabupaten Bekasi Jawa Barat.  </li>
+<li>Organisasi Kepengurusan dibentuk dengan tujuan agar penyelenggaraan tugas dan fungsi pemerintahan dan pembangunan Perumahan Griya Hasanah Sukaasih dapat dilaksanakan secara baik, terkoordinasi, terstruktur, transparan, dan dapat dipertanggung jawabkan.</li>
+</ol>
+<h3>AD - Pasal 8</h3>
+<h4>Pengurus</h4>
+<ol>
+<li>Susunan dan personalia pengurus menjadi hak prerogatif Ketua Paguyuban Perumahan Griya Hasanah Sukaasih terpilih.  </li>
+<li>Masa bakti Pengurus Adalah selama 2 (satu) tahun.  </li>
+<li>Rapat pengurus membahas tentang manajemen dan program kerja.  </li>
+<li>Keputusan rapat diupayakan untuk ditetapkan berdasarkan musyawarah untuk mencapai mufakat, kalau tidak tercapai baru dilakukan dengan pemungutan suara.</li>
+</ol>
+<h3>AD - Pasal 9</h3>
+<h4>Kekuasaan Organisasi</h4>
+<ol>
+<li>Rapat warga merupakan kekuasaan tertinggi dalam organisasi.  </li>
+<li>Rapat warga menetapkan:  </li>
+<li>
+<p>Anggaran Dasar dan Anggaran Rumah Tangga.</p>
+</li>
+<li>
+<p>Pemilihan, pengangkatan dan pemberhentian Ketua Paguyuban.</p>
+</li>
+<li>
+<p>Kebijakan umum dibidang organisasi, manajemen dan program.</p>
+</li>
+<li>
+<p>Pertemuan warga dilaksanakan secara rutin setiap bulan dan terbuka bagi seluruh warga (kepala keluarga/pasangan)  </p>
+</li>
+<li>Tempat rapat warga dilaksanakan di halaman musholla Nurul Iman Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Materi rapat warga tiap bulan : Menjalin keakraban dan silaturahmi antar anggota, penyampaian informasi perkembangan Paguyuban dan perumahan Griya Hasanah Sukaasih dst, pembahasan program kerja, dan penyampaian laporan keuangan.  </li>
+<li>Keputusan rapat dianggap sah apabila dihadiri minimal 30% dari total jumlah Kepala Keluarga atau pemilik rumah yang terdaftar. Jika kuorum tidak tercapai, keputusan diambil berdasarkan suara terbanyak dari warga yang hadir.  </li>
+<li>Keputusan dapat ditetapkan dengan persetujuan jumlah Warga yang hadir dalam Rapat Warga Sesuai dengan Absensi kehadiran yang ada.  </li>
+<li>Keputusan rapat bersifat mengikat seluruh Warga  </li>
+<li>Keputusan Rapat Warga diambil berdasarkan musyawarah untuk mencapai mufakat.  </li>
+<li>Apabila tidak diperoleh keputusan dengan cara musyawarah, maka pengambilan keputusan dilakukan berdasarkan suara terbanyak.  </li>
+<li>Dalam hal dilakukan pemungutan suara, setiap Warga mempunyai satu hak suara.</li>
+</ol>
+<h2 id="bab-iii">BAB III</h2>
+<p><strong>PEMILIHAN KETUA PAGUYUBAN</strong></p>
+<h3>AD - Pasal 10</h3>
+<h4>Kualifikasi Calon</h4>
+<ol>
+<li>Warga Negara Republik Indonesia.  </li>
+<li>Bertakwa kepada Tuhan Yang Maha Esa.  </li>
+<li>Setia dan taat sepenuhnya kepada Pancasila dan Undang-Undang Dasar Negara Republik Indonesia Tahun 1945.  </li>
+<li>Sehat jasmani dan rohani.  </li>
+<li>Berpendidikan paling rendah tamat sekolah menengah atas atau sederajat.  </li>
+<li>Berusia sekurang-kurangnya 25 (dua puluh lima) tahun.  </li>
+<li>Bertempat tinggal di Perumahan setempat dan telah tetap sekurang-kurangnya 6 (enam) bulan.  </li>
+<li>Berkelakuan baik serta memiliki kemauan, kemampuan dan kepedulian untuk dapat menjalankan tugas dan fungsi ketua paguyuban dengan sebaik-baiknya.  </li>
+<li>Tidak menjabat sebagai Kepala Desa, Aparat Desa, Pengurus Lembaga Kemasyarakatan lainnya di Kelurahan, maupun anggota salah satu Partai Politik.</li>
+</ol>
+<h3>AD - Pasal 11</h3>
+<h4>Mekanisme Pemilihan Ketua Paguyuban</h4>
+<p>Mekanisme pemilihan ketua paguyuban adalah sebagai berikut:</p>
+<ol>
+<li>Calon Ketua Paguyuban diusulkan oleh setiap Blok berdasarkan hasil musyawarah warga.  </li>
+<li>Pemilihan Ketua Paguyuban dianggap sah apabila dihadiri sekurang-kurangnya 10 (sepuluh) orang ditambah 1(satu) orang dari jumlah daftar pemilih.  </li>
+<li>Calon Ketua Paguyuban terpilih adalah calon Ketua Paguyuban dengan suara terbanyak dan apabila hal tersebut belum tercapai, maka diadakan pemilihan ulang melalui mekanisme pemungutan suara terhadap calon-calon yang memperoleh suara terbanyak pertama dan kedua.  </li>
+<li>Calon Ketua Paguyuban terpilih sebagaimana hasil musyawarah bersama dan dituangkan dalam Berita Acara yang ditandatangani oleh peserta musyawarah.  </li>
+<li>Ketua Paguyuban terpilih berwenang menyusun dan menetapkan Struktur Organisasi dan tata kelola kepengurusan yang sesuai kebutuhan dalam rangka kelancaran penyelenggaraan pembangunan perumahan Griya Hasanah Sukaasih.</li>
+</ol>
+<h3>AD - Pasal 12</h3>
+<h4>Masa Jabatan</h4>
+<ol>
+<li>Masa kepengurusan telah berakhir selama 1 (satu) tahun.  </li>
+<li>Sebagian besar anggota pengurus mengundurkan diri.  </li>
+<li>Dihentikan oleh Warga Perumahan Griya Hasanah Sukaasih melalui keputusan Musyawarah Warga.</li>
+</ol>
+<h3>AD - Pasal 13</h3>
+<h4>Pemberhentian Ketua Paguyuban</h4>
+<p>Warga berhak mengajukan usulan pemberhentian Ketua Paguyuban sebelum masa jabatan berakhir melalui Rapat Luar Biasa Warga dengan dukungan minimal 50% + 1 (lima puluh persen plus satu) dari total Kepala Keluarga yang terdaftar. Ketua yang bersangkutan diberikan hak untuk melakukan klarifikasi dan pembelaan diri di hadapan warga sebelum keputusan akhir diambil melalui musyawarah mufakat atau pemungutan suara.</p>
+<p>Ketua Paguyuban Perumahan Griya Hasanah Sukaasih dapat diganti atau diberhentikan masa baktinya apabila:</p>
+<ol>
+<li>Meninggal Dunia.  </li>
+<li>Berpindah tempat tinggal.   </li>
+<li>Melakukan tindakan-tindakan yang bertentangan dengan ketentuan atau norma- norma kehidupan masyarakat.  </li>
+<li>Terlibat tindak Pidana yang mempunyai kekuatan hukum tetap dari penegak hukum ( Hakim).</li>
+</ol>
+<p>Apabila Ketua Paguyuban Perumahan Griya Hasanah Sukaasih berhenti sebelum masa jabatannya berakhir, maka Rapat Warga dapat mengangkat pejabat sementara sebagai gantinya dan kemudian ditetapkan pengangkatannya dalam Rapat Warga.</p>
+<h2 id="bab-iv">BAB IV</h2>
+<h4>KEUANGAN</h4>
+<h3>AD - Pasal 14</h3>
+<ol>
+<li>Anggaran belanja Paguyuban Perumahan Griya Hasanah Sukaasih disusun berdasarkan rencana kegiatan.   </li>
+<li>Sumber dana diperoleh:  </li>
+<li>
+<p>Iuran Wajib warga sesuai kesepakatan warga, yang aturan lebih lanjutnya akan dijelaskan pada dokumen lampiran.</p>
+</li>
+<li>
+<p>Iuran Sosial bisa ditarik secara sukarela dan atau bisa ditarik sesuai keputusan rapat warga.</p>
+</li>
+<li>
+<p>Iuran hari besar kebangsaan atau agama (Agustusan, Muharam dll) diminta dari warga secara Sukarela dan atau penentuan berdasarkan kesepakatan warga.</p>
+</li>
+<li>
+<p>Donatur: sumbangan donatur tidak ditentukan dan tidak mengikat.</p>
+</li>
+<li>
+<p>Sumber dana sebagaimana ayat 2 poin a disetorkan ke masing-masing koordinator Blok.  </p>
+</li>
+<li>Sumber dana sebagaimana ayat 2 poin b, c dan d disetorkan kepada kepanitiaan pelaksana yang ditunjuk oleh paguyuban.  </li>
+<li>Semua pengeluaran kas Paguyuban Perumahan Griya Hasanah Sukaasih melalui Bendahara diketahui Ketua Paguyuban.  </li>
+<li>Laporan keuangan dilaporkan kepada Warga setiap bulan.</li>
+</ol>
+<h3>AD - Pasal 15</h3>
+<h4>Penggunaan Anggaran Rutin</h4>
+<ol start="7">
+<li>Pengurus wajib melakukan inventarisasi dan pembukuan data aset PSU perumahan secara berkala sebagai dokumen pendukung administrasi penyerahan aset kepada Pemerintah Daerah.</li>
+</ol>
+<h3>AD - Pasal 16</h3>
+<h4>Penggunaan Anggaran Rutin</h4>
+<ol>
+<li>Dana Paguyuban Perumahan Griya Hasanah Sukaasih secara rutin dipergunakan untuk pengeluaran pengeluaran perumahan baik rutin maupun non rutin yang telah disepakati oleh warga.  </li>
+<li>Besaran anggaran ditetapkan dalam rapat warga.</li>
+</ol>
+<h2 id="bab-v">BAB V</h2>
+<h4>KERJA BAKTI / GOTONG ROYONG</h4>
+<h3>AD - Pasal 17</h3>
+<ol>
+<li>Dalam rangka menumbuhkan kebersamaan di antara warga dan menjaga kebersihan lingkungan, pembangunan sarana prasarana, dan atau lainnya yang diusulkan dalam rapat warga berwujud kerja bakti yang sesuai jadwal yang disepakati warga.  </li>
+<li>Kerja bakti wajib diikuti warga.  </li>
+<li>Diharapkan setiap warga membawa peralatan untuk kerja bakti.  </li>
+<li>Kerja bakti melebihi 4 jam disediakan makan besar.  </li>
+<li>Biaya yang timbul dibebankan ke kas Paguyuban Perumahan Griya Hasanah Sukaasih dengan melihat kondisi kas yang ada atau akan dimasakkan Ibu-ibu Paguyuban Perumahan Griya Hasanah Sukaasih.</li>
+</ol>
+<h2 id="bab-vi">BAB VI</h2>
+<h4>KEAMANAN DAN SISKAMLING</h4>
+<h3>AD - Pasal 18</h3>
+<ol>
+<li>Tamu wajib lapor kepada Ketua Paguyuban Perumahan Griya Hasanah Sukaasih atau pengurus lainnya yang terkait bila menginap 1x24 jam.  </li>
+<li>Ketentuan tentang wajib lapor dijelaskan dalam Anggaran Rumah Tangga pada bab Hak, Kewajiban dan larangan warga.</li>
+</ol>
+<h2 id="bab-vii">BAB VII</h2>
+<h4>PELAKSANAAN HARI BESAR</h4>
+<h3>AD - Pasal 19</h3>
+<ol>
+<li>Pelaksanaan hari besar 17 Agustus, Halal Bihalal, dilaksanakan oleh warga tiap tahun.  </li>
+<li>Pelaksanakan tersebut dikoordinasi oleh seksi pendidikan dan keagamaan dan seksi Kesehatan dan Olah raga.  </li>
+<li>Snack atau makanan untuk hidangan perayaan hari besar dimasak oleh pihak kedua atau dimasak oleh Ibu-ibu dan atau sesuai kesepakatan.  </li>
+<li>Dana dibebankan ke kas Paguyuban Perumahan Griya Hasanah Sukaasih, bila kas Paguyuban minim, maka akan ditarik dana sukarela / berdasarkan kesepakatan rapat Paguyuban.</li>
+</ol>
+<h2 id="bab-viii">BAB VIII</h2>
+<h4>PERMASALAHAN DAN SANKSI</h4>
+<h3>AD - Pasal 20</h3>
+<h4>Permasalahan</h4>
+<ol>
+<li>Permasalahan merupakan dinamika kehidupan berwarga.  </li>
+<li>Setiap permasalahan yang timbul didalam warga diselesaikan secara kekeluargaan.  </li>
+<li>
+<p>Apabila tidak dapat diselesaikan secara kekeluargaan permasalah diserahkan kepada pihak yang terkait.</p>
+</li>
+<li>
+<p>Setiap pelanggaran norma atau aturan yang dilakukan oleh warga wajib melalui tahap pembinaan terlebih dahulu sebelum dikategorikan sebagai masalah yang perlu ditangani dengan sanksi.  </p>
+</li>
+<li>Proses pembinaan dilaksanakan oleh Pengurus Paguyuban atau Koordinator Blok terkait dengan pendekatan musyawarah untuk mencapai mufakat.  </li>
+<li>Hasil pembinaan harus didokumentasikan dalam Berita Acara Pembinaan sebagai catatan untuk pengurus.  </li>
+<li>Apabila setelah proses pembinaan selesai warga tetap mengulangi atau tidak mengindahkan aturan yang berlaku, maka permasalahan dapat dilanjutkan ke tahap pemberian sanksi sesuai Pasal 21.</li>
+</ol>
+<h3>AD - Pasal 21</h3>
+<h4>Sanksi</h4>
+<ol>
+<li>Sanksi merupakan salah satu penyelesaian terakhir dari suatu permasalahan yang timbul didalam warga.  </li>
+<li>Sanksi bertujuan untuk menimbulkan sikap jera melakukan pelanggaran norma- norma atau peraturan di dalam masyarakat.  </li>
+<li>Sanksi diberikan melalui beberapa tahap:  </li>
+<li>
+<p>Sanksi sosial bagi pelanggar yang merusak fungsi PSU (fasos dan fasum) atau memanfaatkan aset untuk kepentingan pribadi tanpa izin, berupa teguran tertulis, pencabutan hak akses penggunaan fasilitas tersebut, dan/atau laporan kepada pihak berwenang sesuai ketentuan penyerahan aset yang berlaku.</p>
+</li>
+<li>
+<p>Teguran pertama secara lisan.</p>
+</li>
+<li>
+<p>Teguran kedua secara lisan.</p>
+</li>
+<li>
+<p>Peringatan pertama secara tertulis.</p>
+</li>
+<li>
+<p>Peringatan kedua secara tertulis.</p>
+</li>
+<li>
+<p>Sanksi sosial sesuai peraturan Paguyuban Perumahan Griya Hasanah Sukaasih.</p>
+</li>
+</ol>
+<p>Seperti : Tidak dilayani dalam pengurusan administrasi lokal, dan tidak diperbolehkan menggunakan fasos dan fasum pribadi.</p>
+<ol start="4">
+<li>Sanksi dikeluarkan berdasarkan hasil musyawarah warga.</li>
+</ol>
+<h2 id="bab-ix">BAB IX</h2>
+<p><strong>PERUBAHAN ANGGARAN DASAR</strong></p>
+<h3>AD - Pasal 22</h3>
+<p>Anggaran Dasar hanya dapat diubah oleh Rapat Warga yang dihadiri oleh sekurang- kurangnya 10 orang plus 1 orang dari jumlah Warga dan perubahannya sah apabila diputuskan dengan suara sekurang-kurangnya dua pertiga dari jumlah Warga yang hadir.</p>
+<h2 id="bab-x">BAB X</h2>
+<h4>PENUTUP</h4>
+<h3>AD - Pasal 23</h3>
+<p>Hal - hal yang belum ditetapkan akan diatur kemudian. Anggaran Dasar ini berlaku sejak berdirinya dan atau terbentuknya kepengurusan Paguyuban Perumahan Griya Hasanah Sukaasih, Desa Sukaasih, Kecamatan Sukatani, Kabupaten Bekasi.</p>
+<h1 id="bagian-2">BAGIAN 2: ANGGARAN RUMAH TANGGA (ART)</h1>
+<h4>ANGGARAN RUMAH TANGGA</h4>
+<h3 id="art-pasal-1">ART - Pasal 1</h3>
+<h4>Pengertian</h4>
+<p>Dalam Anggaran Rumah Tangga ini yang dimaksud dengan:</p>
+<ol>
+<li>Anggaran Rumah Tangga adalah suatu pedoman yang mengatur aturan internal organisasi Pengurus Paguyuban Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Ketua Paguyuban Perumahan Griya Hasanah Sukaasih adalah orang yang dipilih langsung oleh Warga Perumahan Griya Hasanah Sukaasih sesuai dengan Anggaran Dasar untuk memimpin organisasi Paguyuban Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Pengurus adalah Ketua Paguyuban beserta jajarannya yang membantu ketua paguyuban sesuai dengan struktur organisasi yang termuat dalam Anggaran Dasar.  </li>
+<li>Rapat Pengurus adalah pertemuan rutin maupun insidentil yang dilakukan oleh Pengurus Paguyuban untuk membahas perkembangan organisasi, kegiatan-kegiatan dan menetapkan Peraturan Paguyuban.  </li>
+<li>Perumahan Griya Hasanah Sukaasih adalah lingkungan perumahan yang terletak di Desa Sukaasih Kecamatan Sukatani Kabupaten Bekasi Provinsi Jawa Barat.</li>
+</ol>
+<h3 id="art-pasal-2">ART - Pasal 2</h3>
+<h4>Struktur Organisasi</h4>
+<ol>
+<li>Ketua Paguyuban mempunyai hak dan wewenang untuk menunjuk/mengangkat setiap warga sebagai Pengurus untuk membantu tugas-tugasnya sesuai dengan struktur organisasi sebagaimana tertuang dalam Anggaran.  </li>
+<li>Struktur organisasi Pengurus adalah sebagai berikut:  </li>
+<li>Ketua  </li>
+<li>Sekretaris  </li>
+<li>Bendahara  </li>
+<li>Bidang Pendidikan dan Keagamaan  </li>
+<li>Bidang Keamanan dan Ketertiban  </li>
+<li>Bidang Olahraga dan Kesehatan Masyarakat  </li>
+<li>Bidang Pembangunan dan Sarana Prasarana  </li>
+<li>Bidang Sosial dan Ekonomi Kreatif  </li>
+<li>Koordinator Blok</li>
+</ol>
+<h3 id="art-pasal-3">ART - Pasal 3</h3>
+<h4>Tugas Dan Tanggung Jawab Pengurus</h4>
+<ol>
+<li>Ketua Paguyuban Perumahan Griya Hasanah Sukaasih bertanggung jawab untuk:  </li>
+<li>Memilih/menunjuk Pengurus Paguyuban paling lama 2 minggu setelah terpilih.  </li>
+<li>Bersama Pengurus membuat Rencana Kerja dan Anggaran Tahunan.  </li>
+<li>Mengarahkan dan mengkoordinir Warga untuk mencapai tujuan bersama.  </li>
+<li>Memimpin Rapat Pengurus dan bila berhalangan hadir dapat diwakilkan oleh Pengurus lain.  </li>
+<li>Mengontrol pemasukan dan pengeluaran dana kas Paguyuban Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Melakukan koordinasi dan komunikasi dengan lingkungan dalam Paguyuban Perumahan Griya Hasanah Sukaasih maupun lingkungan luar Paguyuban.  </li>
+<li>Membuat laporan pertanggungjawaban kepada Rapat Musyawarah Warga pada akhir masa jabatan.  </li>
+<li>Bertanggungjawab pelaksanaan dan monitoring PKK.  </li>
+<li>Sekretaris Paguyuban Perumahan Griya Hasanah Sukaasih bertanggung jawab untuk:  </li>
+<li>Merencanakan, mengawasi, dan menginventarisasi kondisi fisik fasilitas umum (jalan, taman, drainase, dll) untuk memastikan kelayakan standar teknis PSU, serta berkoordinasi dengan pengembang atau instansi terkait dalam rangka pemeliharaan dan persiapan penyerahan aset ke Pemerintah Daerah.  </li>
+<li>Membantu Ketua dalam melaksanakan tugas dan arahan Ketua.  </li>
+<li>Pelaksanaan tugas-tugas tertentu yang diberikan Ketua.  </li>
+<li>Pelaksanaan tugas dan fungsi Ketua apabila Ketua berhalangan.  </li>
+<li>Mengatur / mengkoordinir jadwal kegiatan.  </li>
+<li>Menyiapkan dan mendistribusikan agenda Rapat.  </li>
+<li>Membuat laporan hasil Rapat.  </li>
+<li>Membuat dan mengedarkan informasi melalui website paguyuban.  </li>
+<li>Menyelenggarakan tata administrasi.  </li>
+<li>Menyampaikan informasi setiap kebijakan dan program Pengurus  </li>
+<li>Bendahara bertanggung jawab untuk:  </li>
+<li>Mengatur dan melakukan manajemen atas semua transaksi kegiatan.  </li>
+<li>Melakukan pembayaran dan pencatatan atas setiap pengeluaran.  </li>
+<li>Melakukan monitoring dan kontrol terhadap semua anggaran kegiatan.  </li>
+<li>Mencatat dana sosial warga dan duka cita  </li>
+<li>Membuat laporan keuangan secara rutin setiap bulan.  </li>
+<li>Bidang Pendidikan dan Keagamaan:  </li>
+<li>Menginisiasi kegiatan keagamaan (pengajian, peringatan hari besar keagamaan, dll).  </li>
+<li>Menyelenggarakan program pendidikan nonformal seperti pelatihan keterampilan, bimbingan belajar, atau parenting.  </li>
+<li>Menjalin kerja sama dengan tokoh agama dan lembaga pendidikan di lingkungan sekitar.  </li>
+<li>Menumbuhkan semangat toleransi dan nilai moral di kalangan warga perumahan.  </li>
+<li>Menginisiasi kegiatan edukasi keluarga (ekonomi rumah tangga, pola asuh anak, kesehatan mental keluarga, dll).  </li>
+<li>Bidang Keamanan dan Ketertiban:  </li>
+<li>Mengkoordinasikan sistem keamanan lingkungan seperti pengaktifan ronda, CCTV, dan pos keamanan.  </li>
+<li>Membuat dan menegakkan aturan ketertiban lingkungan bersama warga.  </li>
+<li>Berkoordinasi dengan pihak keamanan (Babinsa, Bhabinkamtibmas) bila diperlukan.  </li>
+<li>Menangani laporan atau konflik yang mengganggu kenyamanan warga secara bijak dan cepat.  </li>
+<li>Bidang Olahraga dan Kesehatan Masyarakat:  </li>
+<li>Menyelenggarakan kegiatan olahraga rutin (senam, futsal, jalan sehat, dll).  </li>
+<li>Mendorong budaya hidup sehat dan bersih di lingkungan warga.  </li>
+<li>Menyusun program sosialisasi kesehatan, seperti vaksinasi, pemeriksaan rutin, atau edukasi gizi.  </li>
+<li>Menjalin kerja sama dengan puskesmas atau klinik dalam kegiatan sosial kesehatan.  </li>
+<li>Bidang Pembangunan dan Sarana Prasarana:  </li>
+<li>Merencanakan dan mengawasi pembangunan atau perbaikan fasilitas umum (jalan, taman, lampu, dll).  </li>
+<li>Menginventarisasi kebutuhan sarana dan prasarana lingkungan.  </li>
+<li>Melakukan pemeliharaan rutin terhadap fasilitas bersama.  </li>
+<li>Mengatur sistem kerja bakti dan pelibatan warga dalam kegiatan fisik.  </li>
+<li>Bidang Sosial dan Ekonomi Kreatif:  </li>
+<li>Menyelenggarakan kegiatan sosial (bantuan warga sakit, santunan, duka cita, dll).  </li>
+<li>Mendorong dan memfasilitasi usaha ekonomi warga seperti UMKM, bazar, atau koperasi warga.  </li>
+<li>Mengelola program bantuan sosial berbasis data yang transparan.  </li>
+<li>Menjalin kemitraan dengan instansi yang bisa mendukung kegiatan ekonomi kreatif warga.  </li>
+<li>Koordinator Blok:  </li>
+<li>Menjadi perpanjangan tangan pengurus inti paguyuban dalam menyampaikan informasi, instruksi, dan program ke warga Blok masing-masing.  </li>
+<li>Menjembatani aspirasi, keluhan, dan kebutuhan warga di tingkat Blok ke pengurus inti.  </li>
+<li>Membantu pengumpulan iuran, data warga, dan keikutsertaan warga dalam kegiatan lingkungan.  </li>
+<li>Mengorganisir kerja bakti skala Blok dan memastikan keterlibatan aktif warga.  </li>
+<li>Mendorong solidaritas dan kekompakan warga di lingkup Blok dalam menjaga kebersihan, keamanan, dan keindahan.</li>
+</ol>
+<h3 id="art-pasal-4">ART - Pasal 4</h3>
+<h4>Rapat Pengurus</h4>
+<ol>
+<li>Rapat Pengurus diadakan di Lingkungan Paguyuban Perumahan Griya Hasanah Sukaasih yang dihadiri oleh Pengurus dan dipimpin oleh Ketua Paguyuban.  </li>
+<li>Apabila Ketua Paguyuban berhalangan, maka Rapat Pengurus dipimpin oleh Pengurus lain sesuai arahan Ketua.  </li>
+<li>Rapat Pengurus dilaksanakan setiap 1 (satu) bulan sekali dan/atau insidentil apabila diperlukan dalam keadaan yang mendesak.  </li>
+<li>Rapat Pengurus membahas dan menetapkan hal-hal sebagai berikut:  </li>
+<li>Membahas permasalahan-permasalahan aktual yang terjadi dan/atau akan terjadi di lingkungan Paguyuban Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Merencanakan, menyusun, menetapkan Peraturan Paguyuban dan perumahan.  </li>
+<li>Membahas kinerja kepengurusan.  </li>
+<li>Merencanakan kegiatan-kegiatan yang akan dilakukan.  </li>
+<li>Pengangkatan dan pemberhentian anggota pengurus.  </li>
+<li>Setiap Pengurus mempunyai hak untuk mengeluarkan pendapat dan saran serta hak suara dalam Rapat Pengurus.  </li>
+<li>Ketua Paguyuban Perumahan Griya Hasanah Sukaasih berhak untuk memberhentikan anggota Pengurus sebelum masa jabatannya berakhir setelah meminta pertimbangan dari Rapat Pengurus.  </li>
+<li>Pemberhentian anggota Pengurus sebelum masa jabatannya berakhir dapat dilakukan apabila:  </li>
+<li>anggota pengurus tersebut sakit dan/atau tugas keluar kota dalam jangka waktu lama dan/atau pindah dari Lingkungan Perumahan.  </li>
+<li>Anggota pengurus tersebut tidak aktif dalam kepengurusan dan/atau tidak pernah hadir dalam Rapat Pengurus dan/atau tidak pernah mengikuti kegiatan kegiatan yang diadakan oleh Pengurus selama 6 (enam) bulan berturut-turut.  </li>
+<li>Anggota melakukan perbuatan tindak pidana, kekerasan, penggelapan, asusila.  </li>
+<li>Anggota pengurus melakukan pelanggaran atas Anggaran dasar dan Anggaran Rumah Tangga.  </li>
+<li>Untuk pengambilan keputusan, Rapat Pengurus wajib untuk memenuhi kuorum kehadiran minimal 1/2 dari total jumlah pengurus aktif. Forum pengambilan keputusan adalah 3/4 dari anggota yang hadir.  </li>
+<li>Warga memiliki hak untuk mengajukan usulan pemberhentian anggota Pengurus (selain Ketua) melalui Rapat Luar Biasa Warga dengan mekanisme sebagai berikut:  </li>
+<li>Usulan diajukan kepada Ketua Paguyuban dengan dukungan sekurang-kurangnya [X]% dari total jumlah Kepala Keluarga.  </li>
+<li>Anggota Pengurus yang bersangkutan diberikan hak untuk melakukan klarifikasi atau pembelaan diri di hadapan warga sebelum keputusan diambil.  </li>
+<li>Keputusan mengenai pemberhentian sah apabila disepakati melalui musyawarah untuk mufakat dalam Rapat Luar Biasa Warga.  </li>
+<li>Jika musyawarah mufakat tidak tercapai, keputusan diambil berdasarkan suara terbanyak.</li>
+</ol>
+<h3 id="art-pasal-5">ART - Pasal 5</h3>
+<h4>Pengelolaan Kas Rumah Tangga</h4>
+<ol>
+<li>Sumber dana/keuangan Paguyuban Perumahan Griya Hasanah Sukaasih diperoleh dari Iuran Rutin, penggunaan fasos dan fasum dan donasi dari Warga yang menjadi donatur.  </li>
+<li>Sumber dana utama Paguyuban Perumahan Griya Hasanah Sukaasih berupa uang kas warga secara rutin.  </li>
+<li>Setiap pembayaran Iuran Rutin, Pengurus wajib untuk memberikan tanda penerimaan yang sah kepada Warga yang membayar sedangkan untuk Iuran Kegiatan dan Sumbangan Sukarela dibuat dalam bentuk daftar isian (list).  </li>
+<li>Kas Rumah Tangga dipegang oleh Bendahara. Setiap Pengeluaran dana dari Kas Paguyuban Perumahan Griya Hasanah Sukaasih harus atas persetujuan dari Ketua dan Bendahara Paguyuban Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Pembayaran Iuran Kegiatan dibayarkan kepada Panitia Acara kegiatan yang bersangkutan.  </li>
+<li>Pengurus akan mengkoordinir bantuan/sumbangan yang diperlukan.  </li>
+<li>Setiap Warga yang akan menggunakan fasos dan fasum yang ada di lingkungan perumahan secara pribadi harus lapor/koordinasi kepada Pengurus Paguyuban Perumahan Griya Hasanah Sukaasih (Seksi Pembangunan dan Sarana Prasarana).  </li>
+<li>Bendahara akan membuat dan melaporkan kas Rumah Tangga dalam Rapat Warga.   </li>
+<li>
+<p>Untuk menjunjung transparansi keuangan setiap bulan laporan akan dirilis oleh bendahara melalui sekretaris paguyuban di website <a href="https://ghs-sukaasih.github.io/landingpage/">https\://ghs-sukaasih.github.io/landingpage/</a></p>
+</li>
+<li>
+<p>Pengurus wajib memfasilitasi audit keuangan tahunan yang melibatkan perwakilan warga non-pengurus untuk menjamin transparansi pengelolaan dana.</p>
+</li>
+</ol>
+<h3 id="art-pasal-6">ART - Pasal 6</h3>
+<h4>Hak, Kewajiban, dan Larangan Warga</h4>
+<ol>
+<li><strong>Hak Warga</strong>  </li>
+<li>Mendapat layanan administrasi seperti surat Surat Keterangan Domisili, Surat Keterangan Pindah Rumah, dan atau keterangan lain yang diamanatkan oleh Desa Sukaasih.  </li>
+<li>Menggunakan fasilitas umum dan sosial yang tersedia di lingkungan Perumahan Griya Hasanah Sukaasih sesuai dengan fungsinya, adalah mengandung arti bahwa setiap warga Perumahan Griya Hasanah Sukaasih diperbolehkan memanfaatkan segala fasilitas umum dan fasilitas sosial yang ada di lingkungan perumahan Griya Hasanah Sukaasih dengan penuh rasa memiliki untuk kepentingan bersama sesuai dengan fungsi yang sudah ditetapkan. Dengan demikian, tidak diperbolehkan memanfaatkan fasilitas umum dan fasilitas sosial untuk kepentingan pribadi atau golongan.  </li>
+<li>Berkumpul, berdiskusi dan mengemukakan pendapat dimuka umum baik lisan maupun tulisan, mengandung arti bahwa setiap warga berhak mengadakan acara keramaian, perkumpulan, hajatan, keagamaan, mengemukakan pendapat atau pikiran yang dilandasi dengan prinsip kebenaran, positif, dan konstruktif serta diketahui oleh Pengurus Paguyuban Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Memperoleh rasa aman dan nyaman, dapat diartikan sebagai manfaat yang dirasakan oleh warga setelah berupa situasi yang aman dan nyaman dalam kehidupan sehari-hari setelah melaksanakan segala kewajiban dan larangan yang tercantum dalam AD/ART.  </li>
+<li>Memilih dan dipilih menjadi Pengurus Perumahan Griya Hasanah Sukaasih, dapat diartikan sebagai bentuk adanya regenerasi kepengurusan dalam rangka mencapai tujuan pembangunan perumahan Griya Hasanah Sukaasih yang lebih baik.  </li>
+<li>Mengikuti setiap kegiatan di lingkungan Perumahan Griya Hasanah Sukaasih, mencakup seluruh aktifitas umum seperti musyawarah warga, gotong-royong, perayaan hari-hari besar nasional atau keagamaan, olahraga dan kesehatan.  </li>
+<li>Mengetahui perkembangan program dan kegiatan serta pertanggungjawaban keuangan yang dikelola oleh Pengurus, dimaksudkan untuk mengetahui perkembangan program dan kegiatan pembangunan perumahan Griya Hasanah Sukaasih serta pertanggungjawaban dalam pengelolaan keuangan yang dijalankan oleh Pengurus Paguyuban dengan cara-cara yang baik, tertata, transparan dan santun. Pengurus juga berhak memberikan jawaban sesuai dengan kapasitasnya sebagai Pengurus.  </li>
+<li>Turut berpartisipasi dan membantu Pengurus dalam rangka mensukseskan tujuan yang ingin dicapai bersama, dimaksudkan bahwa setiap orang berhak terlibat baik langsung maupun tidak langsung memberikan kontribusi berupa buah pemikiran, tenaga, atau biaya dalam hal pelaksanaan program dan kegiatan pembangunan perumahan Griya Hasanah Sukaasih.  </li>
+<li>
+<p>Merubah bentuk tampilan rumah masing-masing (renovasi rumah), namun tetap menjaga batas-batas yang wajar dan estetika bangunan sebagai hunian yang nyaman, dimaksudkan bagi pemegang Hak Milik/Hak Guna bangunan rumah berhak memperlakukan rumah miliknya sesuai selera yang diinginkan, namun tetap memperhatikan sekurang-kurangnya: 1) Izin Mendirikan Bangunan (IMB); 2) Batas-batas yang wajar dengan tetangga sekeliling; 3) Estetika bangunan yang bersih dan rapi.  </p>
+</li>
+<li>
+<p><strong>Kewajiban Warga</strong>  </p>
+</li>
+<li>Warga wajib mematuhi aturan tata kelola lingkungan yang diterbitkan oleh pihak pengelola kawasan (Town Management) selama aturan tersebut tidak bertentangan dengan norma hukum yang berlaku dan kebijakan Paguyuban.  </li>
+<li>Setiap penghuni wajib menyerahkan dokumen administrasi berupa salinan KTP, Kartu Keluarga, dan Buku Nikah/Akta Nikah (bagi pasangan) kepada Pengurus Paguyuban atau Koordinator Blok sebagai persyaratan pendaftaran warga dan verifikasi hak partisipasi dalam musyawarah warga.  </li>
+<li>Tertib administrasi kependudukan dan pencatatan sipil, mengandung arti luas bahwa setiap warga Perumahan Griya Hasanah Sukaasih selaku warga negara wajib untuk melaksanakan regulasi terkait kependudukan dan pencatatan sipil, diantaranya yang berlaku di Perumahan Griya Hasanah Sukaasih, sebagai berikut: <br />
+1) Setiap warga wajib memiliki identitas diri berupa Kartu Keluarga/Kartu Tanda Penduduk/Surat Izin Mengemudi yang masih berlaku, serta data-data lainnya yang diperlukan dalam rangka pendataan kependudukan dan pencatatan sipil oleh Kabupaten Bekasi.<br />
+2) Setiap Warga Baru atau orang yang baru tinggal/menetap di Perumahan Griya Hasanah Sukaasih baik penghuni tetap atau mengontrak, atau orang yang hanya datang menginap di Perumahan Griya Hasanah Sukaasih. Maka diberlakukan ketentuan sebagai berikut:<br />
+1) Tinggal/Menetap  </li>
+<li>Kepala Keluarga atau yang mewakili berkewajiban mengisi form keterangan tinggal menetap di Perumahan Griya Hasanah Sukaasih paling lambat 30 hari sejak mulai tinggal/menetap.  </li>
+<li>Ketentuan sebagaimana poin (1) berlaku juga bagi Asisten Rumah Tangga yang tinggal/menetap di rumah bersangkutan.  </li>
+<li>Menyerahkan Form sebagaimana poin (1) kepada Pengurus dan atau Petugas Koordinator Blok untuk keperluan pendataan. <br />
+2) Mengontrak/Sew  </li>
+<li>Kepala Keluarga atau yang mewakili berkewajiban mengisi form keterangan tinggal mengontrak di Perumahan Griya Hasanah Sukaasih paling lambat 14 hari sejak masa kontrak.  </li>
+<li>Ketentuan sebagaimana poin (1) berlaku juga bagi Asisten Rumah Tangga yang tinggal/menetap di rumah bersangkutan.  </li>
+<li>Menyerahkan Form sebagaimana poin (1) kepada Pengurus dan atau Petugas Koordinator Blok untuk keperluan pendataan.<br />
+3) Menginap  </li>
+<li>Setiap rumah yang kedatangan Tamu dan menginap lebih dari 1x24 jam diwajibkan kepada Kepala Keluarganya atau yang mewakili untuk mengisi Form Keterangan Tamu Menginap paling lambat 2 hari sejak kedatangan Tamu.  </li>
+<li>Menyerahkan Form sebagaimana poin (1) kepada Pengurus dan atau Koordinator Blok untuk keperluan pendataan.<br />
+3) Setiap Warga Perumahan Griya Hasanah Sukaasih yang akan pindah keluar dari Perumahan Griya Hasanah Sukaasih, diwajibkan:  </li>
+<li>Memberitahukan kepada tetangga sekitar rumah.  </li>
+<li>Mengisi Form Pindah Rumah 1 hari sebelum kepindahan dan menyerahkannya kepada Pengurus dan Petugas Koordinator Blok untuk keperluan pendataan.  </li>
+<li>Mengurus Surat Keterangan Pindah.</li>
+</ol>
+<p>Apabila warga menunggak iuran IPL selama 3 (tiga) bulan berturut-turut, pengurus berhak memberikan teguran tertulis. Jika dalam 30 hari setelah teguran tidak ada penyelesaian, pengurus dapat menunda pelayanan administratif non-darurat bagi warga yang bersangkutan sampai kewajiban diselesaikan.</p>
+<ol start="4">
+<li>Taat aturan dan asas yang berlaku dimaksudkan dalam arti luas bahwa setiap Warga Perumahan Griya Hasanah Sukaasih sebagai warga negara harus taat terhadap peraturan perundang undangan yang berlaku serta menjunjung tinggi landasan hukum AD/ART sebagai alat pemersatu di Perumahan Griya Hasanah Sukaasih, oleh karenanya setiap warga berkewajiban:<br />
+1) Melaksanakan AD/ART dan segala kebijakan yang berlaku di Perumahan Griya Hasanah Sukaasih dengan penuh rasa kepedulian dan tanggungjawab bersama.<br />
+2) Menanamkan kesadaran bahwa membayar IPL secara tepat waktu sesuai jadwal dan nilai yang telah ditetapkan bersama setiap bulannya akan memperlancar proses pembangunan perumahan Griya Hasanah Sukaasih.<br />
+3) Dapat bersikap menerima dan menjalankan keputusan hasil Musyawarah Warga dengan sepenuh hati.<br />
+4) Dapat bersikap menerima dan menjalankan amanat Pengurus yang disampaikan secara terbuka melalui Pengumuman /Surat Edaran/Pemberitahuan resmi atau media komunikasi online.  </li>
+<li>
+<p>Melaksanakan peran serta masyarakat, dimaksudkan sebagai bentuk partisipasi Warga Perumahan Griya Hasanah Sukaasih dalam agenda pembangunan perumahan yang berkesinambungan dan berkelanjutan. Peran serta tidak berarti harus beraktifitas secara fisik semata namun juga dapat berupa pikiran atau gagasan, serta dukungan moril dan materil. Bentuk-bentuk peran serta warga Perumahan Griya Hasanah Sukaasih, diantaranya:<br />
+1) Senantiasa menjaga ketertiban umum serta suasana yang harmonis, bertoleransi, tentram, dan sentosa pada lingkungan blok rumah masing-masing dan Perumahan Griya Hasanah Sukaasih secara keseluruhan.<br />
+2) Bersedia meluangkan waktu menghadiri undangan pertemuan warga yang bersifat resmi.<br />
+3) Bersedia menyumbangan fikiran dan gagasan untuk kemajuan pembangunan perumahan Griya Hasanah Sukaasih.<br />
+4) Turut serta berpartisipasi aktif dalam kegiatan yang bersifat kebersamaan dan gotong-royong dalam rangka mensukseskan pembangunan perumahan Griya Hasanah Sukaasih.<br />
+5) Bersikap menjaga keharmonisan dan hubungan baik dengan warga Perumahan Griya Hasanah Sukaasih dan warga di sekitar perumahan Griya Hasanah Sukaasih.<br />
+6) Melaporkan kepada Pengurus jika melihat/mengetahui adanya dugaan tindak kejahatan atau hal-hal yang dapat mengganggu ketertiban umum di lingkungan perumahan Griya Hasanah Sukaasih.  </p>
+</li>
+<li>
+<p><strong>Larangan Warga</strong></p>
+</li>
+</ol>
+<p>Larangan kepada Warga Perumahan Griya Hasanah Sukaasih, dimaksudkan sebagai rambu-rambu atau batasan norma-norma dan etika yang tidak boleh dilanggar dalam menjalankan kehidupan sehari-hari di lingkungan perumahan Griya Hasanah Sukaasih. Adapun larangan bagi Warga Perumahan Griya Hasanah Sukaasih, sebagai berikut:<br />
+Setiap warga bertanggung jawab atas tamu yang berkunjung/menginap di rumahnya. Warga dilarang menyalahgunakan hunian untuk tindakan yang melanggar norma kesusilaan, hukum pidana, atau mengganggu ketertiban lingkungan.</p>
+<p>Jaringan utilitas umum milik pihak ketiga (seperti tiang listrik, kabel, trafo, pipa PDAM, dan sejenisnya) merupakan aset instansi terkait. Warga dilarang melakukan pemindahan, pembongkaran, atau modifikasi terhadap aset tersebut tanpa izin tertulis dari instansi pemilik aset yang bersangkutan.</p>
+<ol>
+<li>Larangan dalam bersikap dan bertindak:<br />
+1) Mengganggu ketertiban umum adalah suatu tindakan yang dilakukan oleh seseorang yang dapat menimbulkan bahaya terhadap keberlangsungan kehidupan bermasyarakat dan dapat menimbulkan gangguan terhadap ketertiban dan kenyamanan di dalam masyarakat.<br />
+2) Berbuat anarki adalah perbuatan semena-mena yang dilakukan menggunakan kekerasan terhadap kelompok, atau seseorang yang melakukan tindakan kejahatan berupa pemukulan, pengeroyokan, penjarahan, atau pembakaran terhadap seseorang yang dianggap bersalah.<br />
+3) Bersikap provokatif adalah tindakan kelompok atau seseorang untuk mempengaruhi orang lain guna membangkitkan kemarahan sehingga yang bersangkutan melakukan sesuatu tindakan.<br />
+4) Menyebarkan berita bohong (hoaks) adalah tindakan kelompok atau seseorang yang dengan sengaja memberikan informasi yang tidak benar yang dapat menyesatkan orang lain.<br />
+5) Memfitnah atau menghasut adalah tindakan komunikasi kepada satu orang atau lebih yang bertujuan memberikan stigma negatif atau peristiwa yang dilakukan pihak lain berdasarkan fakta palsu yang dapat mempengaruhi kehormatan, wibawa dan reputasi seseorang.<br />
+6) Berbuat sesuatu yang dapat memicu konflik internal di lingkungan perumahan Griya Hasanah Sukaasih.   </li>
+<li>Larangan melakukan perjudian secara terang-terangan, menegak minuman keras hingga mabuk di muka umum, berzina, serta dengan sengaja merusak fasos dan fasum.  </li>
+<li>Larangan mengambil hak-hak orang lain tanpa seizin orang yang bersangkutan atau yang dapat dikategorikan sebagai tindakan pencurian.  </li>
+<li>Larangan masuk bagi kendaraan bermuatan besar (Dum Truck, Tangki Air, dan sejenisnya) demi menjaga konstruksi jalan dan ketertiban lingkungan, terkecuali truck pengangkut sampah.  </li>
+<li>Larangan memanfaatkan fasos dan fasum secara pribadi atau kelompok tanpa izin pihak yang berwenang.  </li>
+<li>Setiap warga dilarang memelihara hewan berbahaya (hewan buas, berbisa, atau hewan yang berpotensi mengancam keselamatan). Bagi warga yang memelihara hewan peliharaan umum, wajib memastikan hewan tidak mengganggu ketertiban, kebersihan, atau kenyamanan tetangga dan lingkungan sekitar.</li>
+</ol>
+<h3 id="art-pasal-7">ART - Pasal 7</h3>
+<h4>Renovasi Rumah</h4>
+<ol>
+<li>Setiap Warga di Perumahan Griya Hasanah Sukaasih yang memiliki Sertipikat Hak Milik/Hak Guna Bangunan berhak untuk merubah bentuk dan tampilan rumah masing-masing (renovasi) dengan tetap menjaga batas-batas yang wajar dan estetika bangunan.   </li>
+<li>Dalam hal pelaksanaan renovasi rumah, di himbau kepada yang bersangkutan agar:   </li>
+<li>Memberitahukan kepada tetangga sekeliling rumah dan warga sekitar bahwa akan ada pekerjaan renovasi yang mungkin akan menimbulkan gangguan penglihatan dan pendengaran serta rasa ketidaknyamanan orang lain.  </li>
+<li>Mengatur pengadaan dan penempatan material sebaik mungkin agar tidak mengganggu jalanan dan warga sekitar.  </li>
+<li>Mengendalikan para pekerja agar tidak melakukan tindakan yang dilarang di Perumahan Griya Hasanah Sukaasih.  </li>
+<li>Bersedia menerima komplain dari tetangga sekitar yang merasa dirugikan apabila terdapat gangguan/kerusakan yang timbul karena adanya pekerjaan renovasi tersebut.  </li>
+<li>Membersihkan seluruh sampah dan sisa-sisa puing-puing pekerjaan untuk dibuang keluar Perumahan Griya Hasanah Sukaasih.  </li>
+<li>
+<p>Dalam hal pemilik rumah tidak mengindahkan ketentuan tersebut, maka Pengurus Paguyuban dan jajarannya akan bertindak untuk menegur yang bersangkutan.</p>
+</li>
+<li>
+<p>Pekerja bangunan diperbolehkan bekerja di hari libur.</p>
+</li>
+</ol>
+<h3 id="art-pasal-8">ART - Pasal 8</h3>
+<h4>Berkendara</h4>
+<ol>
+<li>Setiap Warga Perumahan Griya Hasanah Sukaasih yang sedang mengendarai Mobil dan Sepeda Motor di lingkungan Perumahan, hendaknya dapat mengontrol diri untuk:   </li>
+<li>Tidak terlalu kencang/mengebut dalam menggunakan kendaraan.  </li>
+<li>Memarkir kendaraan di tempat yang seharusnya (Garasi/Carport).  </li>
+<li>Setiap orang yang berkendara di lingkungan Perumahan Griya Hasanah Sukaasih selain penghuni, seperti Driver Taksi/Ojek Online dan atau sejenisnya wajib diingatkan oleh Petugas Keamanan untuk:  </li>
+<li>Tidak terlalu kencang/mengebut dalam menggunakan kendaraan.  </li>
+<li>Memarkir kendaraan pada posisi yang sesuai sehingga tidak mengganggu orang lain yang akan lewat.  </li>
+<li>Dalam hal pengemudi tidak mengindahkan peringatan yang tertulis pada aturan Perumahan Griya Hasanah Sukaasih, maka yang bersangkutan dilarang untuk memasuki lingkungan Perumahan Griya Hasanah Sukaasih dikemudian hari.</li>
+</ol>
+<h3 id="art-pasal-9">ART - Pasal 9</h3>
+<h4>Perubahan Anggaran Rumah Tangga</h4>
+<ol>
+<li>Anggaran Rumah Tangga dibuat dan disahkan oleh Warga melalui Rapat Musyawarah Warga.  </li>
+<li>Segala Sesuatu yang belum cukup diatur dalam Anggaran Rumah Tangga akan diatur lebih lanjut oleh Warga secara musyawarah dan mufakat.  </li>
+<li>Setiap Perubahan dan penambahan Anggaran Rumah Tangga disahkan melalui Rapat Musyawarah Warga.</li>
+</ol>
+<p>Demikianlah Anggaran Rumah Tangga Paguyuban Perumahan Griya Hasanah Sukaasih ini dibuat dan ditetapkan oleh Rapat Musyawarah Warga di Perumahan Griya Hasanah Sukaasih, Desa Sukaasih, Kecamatan Sukatani, Kabupaten Bekasi.</p>
+<h1 id="lampiran">LAMPIRAN AD/ART</h1>
+<h4><span id="lampiran-ipl">1. Kebijakan Iuran Pengelolaan Lingkungan (IPL)</span></h4>
+<p>Iuran Pengelolaan Lingkungan (IPL) merupakan dana yang dihimpun dari warga untuk mendukung operasional, pemeliharaan, dan pembangunan fasilitas di lingkungan Perumahan Griya Hasanah Sukaasih. Pengelolaan dana IPL dilakukan secara transparan, akuntabel, dan dilaporkan secara berkala kepada seluruh warga. Rincian besaran iuran, alokasi penggunaan, serta teknis pemungutan ditetapkan dan disahkan melalui mekanisme Rapat Musyawarah Warga untuk menjamin keadilan dan keberlangsungan lingkungan.</p>
+<h4><span id="lampiran-psu">2. Formulir Inventarisasi PSU</span></h4>
+<h4>FORMULIR INVENTARISASI PRASARANA, SARANA, DAN UTILITAS (PSU)</h4>
+<p>Blok / Area : ..........................................</p>
+<p>Koordinator : ..........................................</p>
+<p>Tanggal : ..........................................</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">No</th>
+<th>Jenis PSU</th>
+<th>Lokasi</th>
+<th>Kondisi</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>Jalan / Paving</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>Drainase</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Lampu Jalan</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>Taman / Fasos</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Tempat Sampah</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>Pos Keamanan</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo-container" style="justify-content: center; margin-bottom: 1rem;">
+                <div class="logo-circle">GHS</div>
+                <div class="logo-text">
+                    <div class="logo-main">Griya Hasanah</div>
+                    <div class="logo-sub">Sukaasih</div>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#home">Beranda</a>
+                <a href="index.html#vision-mission">Visi & Misi</a>
+                <a href="index.html#announcements">Pengumuman</a>
+                <a href="index.html#management">Pengurus</a>
+                <a href="index.html#facilities">Fasilitas</a>
+                <a href="index.html#payment">Iuran</a>
+                <a href="index.html#financial-info">Keuangan</a>
+                <a href="ad-art.html">AD/ART</a>
+                <a href="index.html#gallery">Galeri</a>
+                <a href="index.html#contact">Kontak</a>
+            </div>
+            <p style="color: #94a3b8; font-size: 0.9rem;">&copy; 2026 Paguyuban Griya Hasanah Sukaasih. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fitur Pencarian Real-Time dalam Naskah AD/ART
+        document.getElementById('clause-search').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            const content = document.getElementById('document-content');
+            
+            // Hapus highlight sebelumnya
+            const highlighted = content.querySelectorAll('.highlight');
+            highlighted.forEach(el => {
+                el.outerHTML = el.innerText;
+            });
+
+            if (!query || query.length < 3) return;
+
+            // Highlight matches
+            const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, null, false);
+            const nodesToReplace = [];
+            while (walker.nextNode()) {
+                const node = walker.currentNode;
+                if (node.nodeValue.toLowerCase().includes(query) && node.parentElement.tagName !== 'SCRIPT') {
+                    nodesToReplace.push(node);
+                }
+            }
+
+            nodesToReplace.forEach(node => {
+                const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+                const span = document.createElement('span');
+                span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+                node.parentNode.replaceChild(span, node);
+            });
+        });
+    </script>
+</body>
+</html>

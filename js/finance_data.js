@@ -1,0 +1,212 @@
+// Data Keuangan GHS - Terakhir diperbarui: 2026-11-02 20:02 WIB
+window.GHS_FINANCE_DATA = {
+  "updated_at": "2026-11-02 20:02 WIB",
+  "saldo_kas": 2927038.0,
+  "total_pemasukan": 39290000.0,
+  "total_pengeluaran": 36362962.0,
+  "saldo_cash": 6449038.0,
+  "saldo_digital": -3522000.0,
+  "warga": {
+    "total": 73,
+    "dihuni": 62,
+    "kosong": 11
+  },
+  "kategori_pengeluaran": [
+    {
+      "kategori": "Biaya Kebersihan",
+      "total": 13000000.0,
+      "count": 13
+    },
+    {
+      "kategori": "Biaya Keamanan",
+      "total": 13000000.0,
+      "count": 13
+    },
+    {
+      "kategori": "Perawatan Fasum",
+      "total": 2586671.0,
+      "count": 9
+    },
+    {
+      "kategori": "Acara Warga",
+      "total": 2077291.0,
+      "count": 22
+    },
+    {
+      "kategori": "Pembelian Perlengkapan",
+      "total": 1884000.0,
+      "count": 12
+    },
+    {
+      "kategori": "Operasional Ronda",
+      "total": 1300000.0,
+      "count": 13
+    },
+    {
+      "kategori": "Listrik/Air Fasum",
+      "total": 1285000.0,
+      "count": 9
+    },
+    {
+      "kategori": "JASA TUKANG PENGERJAAN SODETAN 2 HARI",
+      "total": 700000.0,
+      "count": 1
+    },
+    {
+      "kategori": "Kerja Bakti",
+      "total": 325000.0,
+      "count": 1
+    },
+    {
+      "kategori": "bikin stampel",
+      "total": 55000.0,
+      "count": 1
+    },
+    {
+      "kategori": "Jenguk pak dadan",
+      "total": 50000.0,
+      "count": 1
+    },
+    {
+      "kategori": "Jenguk pak agung",
+      "total": 50000.0,
+      "count": 1
+    },
+    {
+      "kategori": "JENGUK BPK NASIR",
+      "total": 50000.0,
+      "count": 1
+    }
+  ],
+  "kategori_pemasukan": [
+    {
+      "kategori": "Iuran Bulanan Warga",
+      "total": 39290000.0,
+      "count": 666
+    }
+  ],
+  "transaksi_terbaru": [
+    {
+      "tanggal": "2026-11-05",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Iuran Bulanan 2026-11 (Kas 20k, Aman 20k, Sampah 20k, Ronda 10k) - GIONO (A5)",
+      "nominal": 70000.0,
+      "metode_kas": "Cash",
+      "nama_warga": "GIONO"
+    },
+    {
+      "tanggal": "2026-10-31",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "kas bulanan",
+      "nominal": 70000.0,
+      "metode_kas": "Digital",
+      "nama_warga": "BOBI M"
+    },
+    {
+      "tanggal": "2026-10-25",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 4",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
+    },
+    {
+      "tanggal": "2026-10-18",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 3",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
+    },
+    {
+      "tanggal": "2026-10-11",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 2",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
+    },
+    {
+      "tanggal": "2026-10-05",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Iuran Bulanan 2026-10 (Kas 20k, Aman 20k, Sampah 20k, Ronda 10k) - GIONO (A5)",
+      "nominal": 70000.0,
+      "metode_kas": "Cash",
+      "nama_warga": "GIONO"
+    },
+    {
+      "tanggal": "2026-10-04",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 1",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
+    },
+    {
+      "tanggal": "2026-09-27",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 4",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
+    },
+    {
+      "tanggal": "2026-09-20",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 3",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
+    },
+    {
+      "tanggal": "2026-09-13",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 2",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
+    }
+  ],
+  "arus_bulanan": [
+    {
+      "periode": "2026-05",
+      "pemasukan": 2670000.0,
+      "pengeluaran": 2000000.0
+    },
+    {
+      "periode": "2026-07",
+      "pemasukan": 3670000.0,
+      "pengeluaran": 2924291.0
+    },
+    {
+      "periode": "2026-08",
+      "pemasukan": 3790000.0,
+      "pengeluaran": 3626171.0
+    },
+    {
+      "periode": "2026-09",
+      "pemasukan": 3640000.0,
+      "pengeluaran": 2434000.0
+    },
+    {
+      "periode": "2026-10",
+      "pemasukan": 140000.0,
+      "pengeluaran": 400000.0
+    },
+    {
+      "periode": "2026-11",
+      "pemasukan": 70000.0,
+      "pengeluaran": 0
+    }
+  ]
+};
