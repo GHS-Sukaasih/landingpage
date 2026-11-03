@@ -178,41 +178,101 @@
         }
 
         .btn-primary {
-            background: white;
-            color: #2d7d32;
-            padding: 1rem 2rem;
+            background: #1b5e20;
+            color: #ffffff !important;
+            padding: 0.85rem 1.75rem;
             border: none;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
+            transition: all 0.25s ease;
+            font-size: 0.95rem;
             text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 1rem 2rem;
-            border: 2px solid white;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 14px rgba(27, 94, 32, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: #144a18;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(27, 94, 32, 0.35);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #1b5e20 !important;
+            padding: 0.85rem 1.75rem;
+            border: 1.5px solid #2d7d32;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: #2d7d32;
+            background: #f0fdf4;
+            color: #144a18 !important;
+            border-color: #1b5e20;
+            transform: translateY(-2px);
+        }
+
+        .btn-data {
+            background: #ffffff;
+            color: #475569 !important;
+            padding: 0.85rem 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-data:hover {
+            background: #f8fafc;
+            color: #1e293b !important;
+            border-color: #94a3b8;
+            transform: translateY(-2px);
+        }
+
+        /* Tombol Khusus di Hero Section (Background Hijau Gelap) */
+        .hero-cta .btn-primary {
+            background: #ffffff;
+            color: #1b5e20 !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-cta .btn-primary:hover {
+            background: #f0fdf4;
+            color: #144a18 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-cta .btn-secondary {
+            background: transparent;
+            color: #ffffff !important;
+            border: 2px solid #ffffff;
+        }
+
+        .hero-cta .btn-secondary:hover {
+            background: #ffffff;
+            color: #1b5e20 !important;
             transform: translateY(-3px);
         }
 
