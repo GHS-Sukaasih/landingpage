@@ -606,14 +606,17 @@
 
                 <div class="finance-footer-actions" style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 1.5rem;">
                     <a href="http://localhost:8088" target="_blank" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #1b5e20; text-decoration: none;">
-                        <span>🏛️</span> Buka Portal Interaktif Kas RT (Sistem GHS Keuangan) &rarr;
+                        <span>🏛️</span> Buka Portal Kas RT (Transparansi) &rarr;
+                    </a>
+                    <a href="http://localhost:8088?login=true" target="_blank" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #0f766e; text-decoration: none;">
+                        <span>📲</span> Masuk / Cek Iuran Saya (WhatsApp OTP) &rarr;
                     </a>
                     <a href="data/finance_summary.json" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #ffffff; border: 1px solid #cbd5e1; color: #475569; text-decoration: none;">
                         <span>📥</span> Unduh Ringkasan Kas (JSON)
                     </a>
                 </div>
                 <div style="margin-top: 1rem; font-size: 0.75rem; color: #64748b; line-height: 1.5; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 0.6rem 0.85rem;">
-                    <strong>ℹ️ Sinkronisasi Sistem Terpadu:</strong> Data di atas selaras dan bersumber langsung dari basis data <em>GHS Keuangan Engine</em> (SQLite WAL). Pembukuan mengintegrasikan buku induk kas periode 1 & 2 serta mutasi terkini pasca serah terima kas per 31 Oktober 2026.
+                    <strong>ℹ️ Keamanan & Sinkronisasi Sistem Terpadu:</strong> Data di atas selaras dan bersumber langsung dari basis data <em>GHS Keuangan Engine</em> (SQLite WAL). Sistem kini dilengkapi perlindungan hak akses (RBAC) dan <strong>Whitelist Warga</strong> via Satria WhatsApp Bot untuk keamanan data pribadi seluruh warga RT GHS.
                 </div>
             </div>
         </div>
