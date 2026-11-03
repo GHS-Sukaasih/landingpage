@@ -1260,3 +1260,275 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE NON-AI SLOP (OPTIMASI PERANGKAT SMARTPHONE <= 640px)
+   Eliminasi ruang terbuang, pangkas padding raksasa, hapus bingkai bertumpuk
+   ========================================================================== */
+@media (max-width: 640px) {
+    /* Pangkas padding vertikal 80px (5rem) menjadi 24px (1.5rem) */
+    .announcements,
+    .vision-mission,
+    .history,
+    .management,
+    .facilities,
+    .financial,
+    .gallery,
+    .contact {
+        padding: 2rem 0.75rem !important;
+    }
+
+    .section-title {
+        margin-bottom: 1.5rem !important;
+    }
+    .section-title h2 {
+        font-size: 1.5rem !important;
+    }
+    .section-title p {
+        font-size: 0.85rem !important;
+    }
+
+    /* Hero Section Mobile */
+    .hero {
+        min-height: auto !important;
+        padding: 5rem 0.75rem 2.5rem !important;
+    }
+    .hero h1 {
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+    }
+    .hero p {
+        font-size: 0.9rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    .hero-stats {
+        gap: 0.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    .stat-card {
+        padding: 0.75rem 0.5rem !important;
+    }
+    .stat-number {
+        font-size: 1.25rem !important;
+    }
+    .stat-label {
+        font-size: 0.7rem !important;
+    }
+    .hero-cta {
+        flex-direction: column !important;
+        gap: 0.65rem !important;
+    }
+    .hero-cta a {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* Container Edge-to-Edge */
+    .container {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Tombol Aksi Mobile Bersih & Lebar Penuh */
+    .finance-footer-actions {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        margin-top: 1rem !important;
+    }
+    .finance-footer-actions a {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.75rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   MODEL 1: CLEAN EDITORIAL (Default)
+   Dokumen resmi, berwibawa, hairline border tipis, nol bayangan bertumpuk
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    body.theme-editorial .financial-card {
+        padding: 1.25rem 0.85rem !important;
+        border-radius: 12px !important;
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
+        background: #ffffff !important;
+    }
+
+    body.theme-editorial .finance-stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    body.theme-editorial .finance-stat-card {
+        padding: 0.75rem 0.65rem !important;
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+    body.theme-editorial .finance-stat-card .label {
+        font-size: 0.68rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    body.theme-editorial .finance-stat-card .amount {
+        font-size: 1.15rem !important;
+        font-weight: 800 !important;
+    }
+    body.theme-editorial .finance-stat-card .sub-detail {
+        font-size: 0.65rem !important;
+        margin-top: 0.25rem !important;
+    }
+
+    /* Eliminasi Nested Frame pada Berita Acara Serah Terima */
+    body.theme-editorial .serah-terima-box {
+        padding: 0.85rem !important;
+        border-radius: 10px !important;
+        border: 1px solid #cbd5e1 !important;
+        background: #f8fafc !important;
+        margin-bottom: 1rem !important;
+    }
+    body.theme-editorial .serah-terima-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.35rem !important;
+        padding-bottom: 0.65rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    body.theme-editorial .serah-terima-header h3 {
+        font-size: 0.95rem !important;
+    }
+    body.theme-editorial .serah-terima-card {
+        padding: 0.75rem 0 !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+    }
+    body.theme-editorial .serah-terima-card:last-child {
+        border-bottom: none !important;
+    }
+
+    /* Tabel Mutasi Ramping & Scrollable Aman */
+    body.theme-editorial .finance-table-wrapper {
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+    }
+    body.theme-editorial .finance-table th,
+    body.theme-editorial .finance-table td {
+        padding: 0.5rem 0.5rem !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   MODEL 2: APP-SHELL COMPACT
+   Aplikasi native mobile (Fintech Style), edge-to-edge, horizontal scroll chips,
+   hemat ruang vertikal 100%
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    body.theme-appshell {
+        background-color: #f1f5f9 !important;
+    }
+    body.theme-appshell .financial {
+        padding: 1rem 0 !important;
+    }
+    body.theme-appshell .financial-card {
+        padding: 1rem 0.75rem !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: 1px solid #e2e8f0 !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+        background: #ffffff !important;
+    }
+
+    /* Metrik Kas: Horizontal Snap Chips */
+    body.theme-appshell .finance-stats-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        margin-bottom: 0.75rem !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    body.theme-appshell .finance-stat-card {
+        flex: 0 0 78% !important;
+        scroll-snap-align: start !important;
+        padding: 0.85rem !important;
+        border-radius: 12px !important;
+        border: 1px solid #cbd5e1 !important;
+    }
+    body.theme-appshell .finance-stat-card.saldo {
+        background: linear-gradient(135deg, #1b5e20, #2d7d32) !important;
+        color: #ffffff !important;
+        border: none !important;
+    }
+    body.theme-appshell .finance-stat-card.saldo .label,
+    body.theme-appshell .finance-stat-card.saldo .amount,
+    body.theme-appshell .finance-stat-card.saldo .sub-detail {
+        color: #ffffff !important;
+    }
+
+    /* Berita Acara: Ultra-Compact Sheet */
+    body.theme-appshell .serah-terima-box {
+        padding: 0.75rem !important;
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0 !important;
+        background: #f8fafc !important;
+        margin-bottom: 0.75rem !important;
+    }
+    body.theme-appshell .serah-terima-header h3 {
+        font-size: 0.88rem !important;
+    }
+    body.theme-appshell .serah-terima-tag {
+        font-size: 0.68rem !important;
+        padding: 0.2rem 0.5rem !important;
+    }
+    body.theme-appshell .serah-terima-card {
+        padding: 0.65rem !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+        margin-bottom: 0.5rem !important;
+    }
+    body.theme-appshell .serah-terima-list li {
+        font-size: 0.75rem !important;
+        padding: 0.25rem 0 !important;
+    }
+
+    /* Fixed Bottom Action Bar di HP agar tidak perlu scroll mencari tombol */
+    body.theme-appshell .finance-footer-actions {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(8px) !important;
+        padding: 0.65rem 0.75rem !important;
+        margin: 0 !important;
+        border-top: 1px solid #e2e8f0 !important;
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08) !important;
+        z-index: 999 !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.5rem !important;
+    }
+    body.theme-appshell .finance-footer-actions a {
+        padding: 0.6rem 0.5rem !important;
+        font-size: 0.75rem !important;
+        border-radius: 8px !important;
+        white-space: nowrap !important;
+    }
+    body.theme-appshell .finance-footer-actions .btn-data {
+        display: none !important; /* Disembunyikan di sticky bar, dialihkan ke footer */
+    }
+    /* Padding bottom untuk konten body agar tidak tertutup sticky bar */
+    body.theme-appshell {
+        padding-bottom: 65px !important;
+    }
+}
+

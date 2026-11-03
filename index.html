@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Warga - Griya Hasanah Sukaasih</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Inisialisasi Tema Responsive Mobile (Sinkronisasi Admin RBAC Menyeluruh)
+        (function() {
+            var defaultTheme = "editorial";
+            try {
+                var params = new URLSearchParams(window.location.search);
+                var urlTheme = params.get('theme');
+                if (urlTheme && (urlTheme === 'editorial' || urlTheme === 'appshell')) {
+                    document.documentElement.className = 'theme-' + urlTheme;
+                    return;
+                }
+            } catch(e) {}
+            document.documentElement.className = 'theme-' + defaultTheme;
+        })();
+    </script>
 </head>
 <body>
     <header class="header">
@@ -752,5 +767,54 @@
 
     <script src="js/finance_data.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // Sinkronisasi Tema Aktif dari Konfigurasi Server (RBAC Admin Terpusat)
+        (function() {
+            function applyTheme(themeName) {
+                document.documentElement.classList.remove('theme-editorial', 'theme-appshell');
+                document.body.classList.remove('theme-editorial', 'theme-appshell');
+                document.documentElement.classList.add('theme-' + themeName);
+                document.body.classList.add('theme-' + themeName);
+            }
+
+            // Cek override parameter
+            var params = new URLSearchParams(window.location.search);
+            var queryTheme = params.get('theme');
+            if (queryTheme === 'editorial' || queryTheme === 'appshell') {
+                applyTheme(queryTheme);
+            } else {
+                // Ambil dari file konfigurasi statis (sinkronisasi admin)
+                fetch('data/theme_config.json?v=' + Date.now())
+                    .then(function(res) { return res.json(); })
+                    .then(function(data) {
+                        if (data && data.theme) {
+                            applyTheme(data.theme);
+                        }
+                    })
+                    .catch(function() {
+                        applyTheme('editorial');
+                    });
+            }
+
+            // Tampilkan Quick Switcher Bar jika ada parameter ?admin=theme
+            if (params.get('admin') === 'theme' || params.get('mode') === 'admin') {
+                var switcher = document.createElement('div');
+                switcher.style.cssText = 'position:fixed;bottom:10px;right:10px;z-index:99999;background:#1e293b;color:#ffffff;padding:8px 12px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.3);font-family:sans-serif;font-size:11px;display:flex;align-items:center;gap:6px;';
+                switcher.innerHTML = '<strong>⚙️ RBAC Switcher:</strong> ' +
+                    '<button id="sw-ed" style="padding:4px 8px;border-radius:6px;border:none;background:#2d7d32;color:#fff;cursor:pointer;font-weight:bold;">1. Editorial</button>' +
+                    '<button id="sw-app" style="padding:4px 8px;border-radius:6px;border:none;background:#3b82f6;color:#fff;cursor:pointer;font-weight:bold;">2. App-Shell</button>';
+                document.body.appendChild(switcher);
+
+                document.getElementById('sw-ed').onclick = function() {
+                    applyTheme('editorial');
+                    alert('Tema dialihkan ke: Model 1 (Clean Editorial).');
+                };
+                document.getElementById('sw-app').onclick = function() {
+                    applyTheme('appshell');
+                    alert('Tema dialihkan ke: Model 2 (App-Shell Compact).');
+                };
+            }
+        })();
+    </script>
 </body>
 </html>
