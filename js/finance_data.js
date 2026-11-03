@@ -1,11 +1,11 @@
-// Data Keuangan GHS - Terakhir diperbarui: 2026-11-02 20:02 WIB
+// Data Keuangan GHS - Terakhir diperbarui: 2026-11-03 08:03 WIB
 window.GHS_FINANCE_DATA = {
-  "updated_at": "2026-11-02 20:02 WIB",
-  "saldo_kas": 2927038.0,
-  "total_pemasukan": 39290000.0,
-  "total_pengeluaran": 36362962.0,
-  "saldo_cash": 6449038.0,
-  "saldo_digital": -3522000.0,
+  "updated_at": "2026-11-03 08:03 WIB",
+  "saldo_kas": 4357038.0,
+  "total_pemasukan": 44950000.0,
+  "total_pengeluaran": 40592962.0,
+  "saldo_cash": 4287038.0,
+  "saldo_digital": 70000.0,
   "warga": {
     "total": 73,
     "dihuni": 62,
@@ -14,75 +14,60 @@ window.GHS_FINANCE_DATA = {
   "kategori_pengeluaran": [
     {
       "kategori": "Biaya Kebersihan",
-      "total": 13000000.0,
-      "count": 13
+      "total": 15000000.0,
+      "count": 15
     },
     {
       "kategori": "Biaya Keamanan",
-      "total": 13000000.0,
-      "count": 13
+      "total": 15000000.0,
+      "count": 15
     },
     {
       "kategori": "Perawatan Fasum",
-      "total": 2586671.0,
-      "count": 9
-    },
-    {
-      "kategori": "Acara Warga",
-      "total": 2077291.0,
-      "count": 22
-    },
-    {
-      "kategori": "Pembelian Perlengkapan",
-      "total": 1884000.0,
+      "total": 3317171.0,
       "count": 12
     },
     {
-      "kategori": "Operasional Ronda",
-      "total": 1300000.0,
-      "count": 13
-    },
-    {
       "kategori": "Listrik/Air Fasum",
-      "total": 1285000.0,
-      "count": 9
+      "total": 2383000.0,
+      "count": 18
     },
     {
-      "kategori": "JASA TUKANG PENGERJAAN SODETAN 2 HARI",
-      "total": 700000.0,
-      "count": 1
+      "kategori": "Operasional Ronda",
+      "total": 1400000.0,
+      "count": 14
+    },
+    {
+      "kategori": "Acara Warga",
+      "total": 1094291.0,
+      "count": 12
+    },
+    {
+      "kategori": "Pengeluaran Operasional",
+      "total": 970000.0,
+      "count": 7
+    },
+    {
+      "kategori": "Pembelian Perlengkapan",
+      "total": 799500.0,
+      "count": 4
     },
     {
       "kategori": "Kerja Bakti",
-      "total": 325000.0,
-      "count": 1
+      "total": 479000.0,
+      "count": 3
     },
     {
-      "kategori": "bikin stampel",
-      "total": 55000.0,
-      "count": 1
-    },
-    {
-      "kategori": "Jenguk pak dadan",
-      "total": 50000.0,
-      "count": 1
-    },
-    {
-      "kategori": "Jenguk pak agung",
-      "total": 50000.0,
-      "count": 1
-    },
-    {
-      "kategori": "JENGUK BPK NASIR",
-      "total": 50000.0,
-      "count": 1
+      "kategori": "Dana Sosial",
+      "total": 150000.0,
+      "count": 3
     }
   ],
   "kategori_pemasukan": [
     {
       "kategori": "Iuran Bulanan Warga",
-      "total": 39290000.0,
-      "count": 666
+      "total": 44950000.0,
+      "count": 851
     }
   ],
   "transaksi_terbaru": [
@@ -94,6 +79,15 @@ window.GHS_FINANCE_DATA = {
       "nominal": 70000.0,
       "metode_kas": "Cash",
       "nama_warga": "GIONO"
+    },
+    {
+      "tanggal": "2026-10-31",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 5 (31 OKTOBER 2026)",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
     },
     {
       "tanggal": "2026-10-31",
@@ -166,22 +160,13 @@ window.GHS_FINANCE_DATA = {
       "nominal": 100000.0,
       "metode_kas": "Cash",
       "nama_warga": null
-    },
-    {
-      "tanggal": "2026-09-13",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 2",
-      "nominal": 100000.0,
-      "metode_kas": "Cash",
-      "nama_warga": null
     }
   ],
   "arus_bulanan": [
     {
-      "periode": "2026-05",
-      "pemasukan": 2670000.0,
-      "pengeluaran": 2000000.0
+      "periode": "2026-06",
+      "pemasukan": 2640000.0,
+      "pengeluaran": 2130000.0
     },
     {
       "periode": "2026-07",
@@ -201,7 +186,7 @@ window.GHS_FINANCE_DATA = {
     {
       "periode": "2026-10",
       "pemasukan": 140000.0,
-      "pengeluaran": 400000.0
+      "pengeluaran": 500000.0
     },
     {
       "periode": "2026-11",

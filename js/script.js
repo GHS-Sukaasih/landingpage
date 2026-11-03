@@ -44,9 +44,9 @@
         const copyBtn = document.querySelector('.copy-btn');
         if (copyBtn) {
             copyBtn.addEventListener('click', function() {
-                const accountNumber = '0275802987';
+                const accountNumber = '106537259839';
                 navigator.clipboard.writeText(accountNumber).then(() => {
-                    alert('Nomor rekening berhasil disalin!');
+                    alert('Nomor rekening Bank Jago berhasil disalin: 1065 3725 9839 (a.n. Asep Safrudin)');
                 }).catch(err => {
                     console.error('Gagal menyalin: ', err);
                 });
