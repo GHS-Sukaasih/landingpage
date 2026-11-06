@@ -191,7 +191,9 @@
                         var prefix = isKeluar ? '-' : '+';
                         var uraianText = tx.uraian || tx.kategori || 'Transaksi Kas';
                         if (tx.nama_warga && tx.nama_warga !== 'Petugas Keamanan' && tx.nama_warga !== 'Petugas Kebersihan') {
-                            uraianText += ' (' + tx.nama_warga + ')';
+                            if (!uraianText.toUpperCase().includes(tx.nama_warga.toUpperCase())) {
+                                uraianText += ' (' + tx.nama_warga + ')';
+                            }
                         }
                         var metode = tx.metode_kas ? (' ' + tx.metode_kas) : '';
 

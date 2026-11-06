@@ -1,14 +1,14 @@
-// Data Keuangan GHS - Terakhir diperbarui: 2026-11-06 15:22 WIB
+// Data Keuangan GHS - Terakhir diperbarui: 2026-11-06 15:30 WIB
 window.GHS_FINANCE_DATA = {
-  "updated_at": "2026-11-06 15:22 WIB",
+  "updated_at": "2026-11-06 15:30 WIB",
   "portal_url": "https://special-animated-specifies-jewel.trycloudflare.com",
-  "saldo_kas": 2427038.0,
-  "total_pemasukan": 45020000.0,
-  "count_pemasukan": 852,
+  "saldo_kas": 2357038.0,
+  "total_pemasukan": 44950000.0,
+  "count_pemasukan": 851,
   "total_pengeluaran": 42592962.0,
   "count_pengeluaran": 105,
-  "saldo_cash": 2427038.0,
-  "saldo_digital": 0.0,
+  "saldo_cash": 2287038.0,
+  "saldo_digital": 70000.0,
   "warga": {
     "total": 73,
     "dihuni": 62,
@@ -69,8 +69,8 @@ window.GHS_FINANCE_DATA = {
   "kategori_pemasukan": [
     {
       "kategori": "Iuran Bulanan Warga",
-      "total": 45020000.0,
-      "count": 852
+      "total": 44950000.0,
+      "count": 851
     }
   ],
   "transaksi_terbaru": [
@@ -109,15 +109,6 @@ window.GHS_FINANCE_DATA = {
       "nominal": 70000.0,
       "metode_kas": "Cash",
       "nama_warga": "BOBI M"
-    },
-    {
-      "tanggal": "2026-10-30",
-      "jenis": "Pemasukan",
-      "kategori": "Iuran Bulanan Warga",
-      "uraian": "Iuran Bulanan 2026-10 (A11 - FAKIH)",
-      "nominal": 70000.0,
-      "metode_kas": "Cash",
-      "nama_warga": "FAKIH"
     },
     {
       "tanggal": "2026-10-25",
@@ -163,6 +154,15 @@ window.GHS_FINANCE_DATA = {
       "nominal": 100000.0,
       "metode_kas": "Cash",
       "nama_warga": null
+    },
+    {
+      "tanggal": "2026-09-20",
+      "jenis": "Pengeluaran",
+      "kategori": "Operasional Ronda",
+      "uraian": "RONDA MINGGU 3",
+      "nominal": 100000.0,
+      "metode_kas": "Cash",
+      "nama_warga": null
     }
   ],
   "arus_bulanan": [
@@ -188,7 +188,7 @@ window.GHS_FINANCE_DATA = {
     },
     {
       "periode": "2026-10",
-      "pemasukan": 140000.0,
+      "pemasukan": 70000.0,
       "pengeluaran": 500000.0
     },
     {
