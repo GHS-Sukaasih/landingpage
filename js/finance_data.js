@@ -1,7 +1,7 @@
-// Data Keuangan GHS - Terakhir diperbarui: 2026-11-06 15:30 WIB
+// Data Keuangan GHS - Terakhir diperbarui: 2026-11-06 17:24 WIB
 window.GHS_FINANCE_DATA = {
-  "updated_at": "2026-11-06 15:30 WIB",
-  "portal_url": "https://special-animated-specifies-jewel.trycloudflare.com",
+  "updated_at": "2026-11-06 17:24 WIB",
+  "portal_url": "https://tutorials-completing-irrigation-alexander.trycloudflare.com",
   "saldo_kas": 2357038.0,
   "total_pemasukan": 44950000.0,
   "count_pemasukan": 851,
