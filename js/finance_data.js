@@ -1,11 +1,14 @@
-// Data Keuangan GHS - Terakhir diperbarui: 2026-11-03 08:03 WIB
+// Data Keuangan GHS - Terakhir diperbarui: 2026-11-06 15:22 WIB
 window.GHS_FINANCE_DATA = {
-  "updated_at": "2026-11-03 08:03 WIB",
-  "saldo_kas": 4357038.0,
-  "total_pemasukan": 44950000.0,
-  "total_pengeluaran": 40592962.0,
-  "saldo_cash": 4287038.0,
-  "saldo_digital": 70000.0,
+  "updated_at": "2026-11-06 15:22 WIB",
+  "portal_url": "https://special-animated-specifies-jewel.trycloudflare.com",
+  "saldo_kas": 2427038.0,
+  "total_pemasukan": 45020000.0,
+  "count_pemasukan": 852,
+  "total_pengeluaran": 42592962.0,
+  "count_pengeluaran": 105,
+  "saldo_cash": 2427038.0,
+  "saldo_digital": 0.0,
   "warga": {
     "total": 73,
     "dihuni": 62,
@@ -14,13 +17,13 @@ window.GHS_FINANCE_DATA = {
   "kategori_pengeluaran": [
     {
       "kategori": "Biaya Kebersihan",
-      "total": 15000000.0,
-      "count": 15
+      "total": 16000000.0,
+      "count": 16
     },
     {
       "kategori": "Biaya Keamanan",
-      "total": 15000000.0,
-      "count": 15
+      "total": 16000000.0,
+      "count": 16
     },
     {
       "kategori": "Perawatan Fasum",
@@ -66,19 +69,28 @@ window.GHS_FINANCE_DATA = {
   "kategori_pemasukan": [
     {
       "kategori": "Iuran Bulanan Warga",
-      "total": 44950000.0,
-      "count": 851
+      "total": 45020000.0,
+      "count": 852
     }
   ],
   "transaksi_terbaru": [
     {
-      "tanggal": "2026-11-05",
-      "jenis": "Pemasukan",
-      "kategori": "Iuran Bulanan Warga",
-      "uraian": "Iuran Bulanan 2026-11 (Kas 20k, Aman 20k, Sampah 20k, Ronda 10k) - GIONO (A5)",
-      "nominal": 70000.0,
+      "tanggal": "2026-11-04",
+      "jenis": "Pengeluaran",
+      "kategori": "Biaya Keamanan",
+      "uraian": "PEMBAYARAN KEAMANAN",
+      "nominal": 1000000.0,
       "metode_kas": "Cash",
-      "nama_warga": "GIONO"
+      "nama_warga": "Petugas Keamanan"
+    },
+    {
+      "tanggal": "2026-11-04",
+      "jenis": "Pengeluaran",
+      "kategori": "Biaya Kebersihan",
+      "uraian": "PEMBAYARAN SAMPAH",
+      "nominal": 1000000.0,
+      "metode_kas": "Cash",
+      "nama_warga": "Petugas Kebersihan"
     },
     {
       "tanggal": "2026-10-31",
@@ -93,10 +105,19 @@ window.GHS_FINANCE_DATA = {
       "tanggal": "2026-10-31",
       "jenis": "Pemasukan",
       "kategori": "Iuran Bulanan Warga",
-      "uraian": "kas bulanan",
+      "uraian": "Iuran Bulanan 2026-10 (D4 - BOBI M) - dititipkan ke Ketua RT, di luar serah terima Yusuf",
       "nominal": 70000.0,
-      "metode_kas": "Digital",
+      "metode_kas": "Cash",
       "nama_warga": "BOBI M"
+    },
+    {
+      "tanggal": "2026-10-30",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Iuran Bulanan 2026-10 (A11 - FAKIH)",
+      "nominal": 70000.0,
+      "metode_kas": "Cash",
+      "nama_warga": "FAKIH"
     },
     {
       "tanggal": "2026-10-25",
@@ -126,15 +147,6 @@ window.GHS_FINANCE_DATA = {
       "nama_warga": null
     },
     {
-      "tanggal": "2026-10-05",
-      "jenis": "Pemasukan",
-      "kategori": "Iuran Bulanan Warga",
-      "uraian": "Iuran Bulanan 2026-10 (Kas 20k, Aman 20k, Sampah 20k, Ronda 10k) - GIONO (A5)",
-      "nominal": 70000.0,
-      "metode_kas": "Cash",
-      "nama_warga": "GIONO"
-    },
-    {
       "tanggal": "2026-10-04",
       "jenis": "Pengeluaran",
       "kategori": "Operasional Ronda",
@@ -148,15 +160,6 @@ window.GHS_FINANCE_DATA = {
       "jenis": "Pengeluaran",
       "kategori": "Operasional Ronda",
       "uraian": "RONDA MINGGU 4",
-      "nominal": 100000.0,
-      "metode_kas": "Cash",
-      "nama_warga": null
-    },
-    {
-      "tanggal": "2026-09-20",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 3",
       "nominal": 100000.0,
       "metode_kas": "Cash",
       "nama_warga": null
@@ -175,7 +178,7 @@ window.GHS_FINANCE_DATA = {
     },
     {
       "periode": "2026-08",
-      "pemasukan": 3790000.0,
+      "pemasukan": 3930000.0,
       "pengeluaran": 3626171.0
     },
     {
@@ -190,8 +193,8 @@ window.GHS_FINANCE_DATA = {
     },
     {
       "periode": "2026-11",
-      "pemasukan": 70000.0,
-      "pengeluaran": 0
+      "pemasukan": 0,
+      "pengeluaran": 2000000.0
     }
   ]
 };

@@ -339,8 +339,8 @@
             
             <div class="financial-card scroll-fade" style="text-align: left; padding: 2rem 2.25rem;">
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
-                    <div class="finance-badge-verified">
-                        <span>🛡️</span> Data Riil Sistem Pembukuan Kas RT (Update: 03 November 2026)
+                    <div class="finance-badge-verified" id="finance-update-badge">
+                        <span>🛡️</span> Data Riil Sistem Pembukuan Kas RT (<span id="finance-update-text">Update: 06 November 2026</span>)
                     </div>
                     <a href="ad-art.html#art-pasal-5" style="font-size: 0.85rem; color: #2d7d32; font-weight: 600; text-decoration: none;">Aturan Kas: Pasal 5 ART &rarr;</a>
                 </div>
@@ -349,23 +349,23 @@
                 <div class="finance-stats-grid">
                     <div class="finance-stat-card saldo">
                         <div class="label">Saldo Kas Aktif</div>
-                        <div class="amount">Rp4.357.038</div>
-                        <div class="sub-detail">💵 Tunai: Rp4.287.038 | 💳 Bank Jago: Rp70.000</div>
+                        <div class="amount" id="stat-saldo-kas">Rp2.427.038</div>
+                        <div class="sub-detail" id="stat-saldo-sub">💵 Tunai: Rp2.427.038 | 💳 Bank Jago: Rp0</div>
                     </div>
                     <div class="finance-stat-card masuk">
                         <div class="label">Total Penerimaan</div>
-                        <div class="amount">Rp44.950.000</div>
-                        <div class="sub-detail">851 transaksi setoran iuran warga</div>
+                        <div class="amount" id="stat-total-masuk">Rp45.020.000</div>
+                        <div class="sub-detail" id="stat-sub-masuk">852 transaksi setoran iuran warga</div>
                     </div>
                     <div class="finance-stat-card keluar">
                         <div class="label">Total Pengeluaran</div>
-                        <div class="amount">Rp40.592.962</div>
-                        <div class="sub-detail">103 mutasi realisasi anggaran RT</div>
+                        <div class="amount" id="stat-total-keluar">Rp42.592.962</div>
+                        <div class="sub-detail" id="stat-sub-keluar">105 mutasi realisasi anggaran RT</div>
                     </div>
                     <div class="finance-stat-card warga">
                         <div class="label">Partisipasi Hunian</div>
-                        <div class="amount">62 / 73</div>
-                        <div class="sub-detail">62 Rumah Dihuni, 11 Kavling Kosong</div>
+                        <div class="amount" id="stat-warga-count">62 / 73</div>
+                        <div class="sub-detail" id="stat-warga-sub">62 Rumah Dihuni, 11 Kavling Kosong</div>
                     </div>
                 </div>
 
@@ -487,76 +487,78 @@
                 <div class="finance-content-grid">
                     <!-- Kolom Kiri: Breakdown Pengeluaran -->
                     <div class="finance-panel">
-                        <h4><span>📊 Alokasi Belanja & Pengeluaran</span> <span style="font-size: 0.8rem; font-weight: normal; color: #64748b;">Total: Rp40.592.962</span></h4>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Biaya Kebersihan & Angkut Sampah</span>
-                                <span class="cat-amount">Rp15.000.000 (37.0%)</span>
+                        <h4><span>📊 Alokasi Belanja & Pengeluaran</span> <span id="finance-total-belanja-header" style="font-size: 0.8rem; font-weight: normal; color: #64748b;">Total: Rp42.592.962</span></h4>
+                        <div id="finance-categories-container">
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Biaya Kebersihan</span>
+                                    <span class="cat-amount">Rp16.000.000 (37.6%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 37.6%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 37.0%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Biaya Keamanan Lingkungan</span>
-                                <span class="cat-amount">Rp15.000.000 (37.0%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Biaya Keamanan</span>
+                                    <span class="cat-amount">Rp16.000.000 (37.6%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 37.6%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 37.0%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Perawatan Fasum & Drainase</span>
-                                <span class="cat-amount">Rp3.317.171 (8.2%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Perawatan Fasum</span>
+                                    <span class="cat-amount">Rp3.317.171 (7.8%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 7.8%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 8.2%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Listrik & Air Fasilitas Umum</span>
-                                <span class="cat-amount">Rp2.383.000 (5.9%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Listrik/Air Fasum</span>
+                                    <span class="cat-amount">Rp2.383.000 (5.6%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 5.6%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 5.9%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Operasional Ronda Malam (Konsumsi)</span>
-                                <span class="cat-amount">Rp1.400.000 (3.4%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Operasional Ronda</span>
+                                    <span class="cat-amount">Rp1.400.000 (3.3%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 3.3%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 3.4%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Acara Warga & Hari Besar</span>
-                                <span class="cat-amount">Rp1.094.291 (2.7%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Acara Warga</span>
+                                    <span class="cat-amount">Rp1.094.291 (2.6%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 2.6%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 2.7%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Pengeluaran Operasional RT</span>
-                                <span class="cat-amount">Rp970.000 (2.4%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Pengeluaran Operasional</span>
+                                    <span class="cat-amount">Rp970.000 (2.3%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 2.3%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 2.4%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Pembelian Perlengkapan & Pos</span>
-                                <span class="cat-amount">Rp799.500 (2.0%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Pembelian Perlengkapan</span>
+                                    <span class="cat-amount">Rp799.500 (1.9%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 1.9%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 2.0%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Kerja Bakti Lapangan</span>
-                                <span class="cat-amount">Rp479.000 (1.2%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Kerja Bakti</span>
+                                    <span class="cat-amount">Rp479.000 (1.1%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 1.1%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 1.2%;"></div></div>
-                        </div>
-                        <div class="cat-progress-item">
-                            <div class="cat-header">
-                                <span class="cat-name">Dana Sosial & Kasih Warga (Jenguk)</span>
-                                <span class="cat-amount">Rp150.000 (0.4%)</span>
+                            <div class="cat-progress-item">
+                                <div class="cat-header">
+                                    <span class="cat-name">Dana Sosial</span>
+                                    <span class="cat-amount">Rp150.000 (0.4%)</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 0.4%;"></div></div>
                             </div>
-                            <div class="progress-track"><div class="progress-fill" style="width: 0.4%;"></div></div>
                         </div>
                     </div>
 
@@ -572,10 +574,20 @@
                                         <th>Nominal</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="finance-tx-tbody">
+                                    <tr>
+                                        <td>04 Nov 2026</td>
+                                        <td>PEMBAYARAN KEAMANAN (Petugas Keamanan)<br><span class="tx-badge tx-badge-keluar">Pengeluaran Cash</span></td>
+                                        <td style="color: #c62828; font-weight: 700;">-Rp1.000.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04 Nov 2026</td>
+                                        <td>PEMBAYARAN SAMPAH (Petugas Kebersihan)<br><span class="tx-badge tx-badge-keluar">Pengeluaran Cash</span></td>
+                                        <td style="color: #c62828; font-weight: 700;">-Rp1.000.000</td>
+                                    </tr>
                                     <tr>
                                         <td>31 Okt 2026</td>
-                                        <td>RONDA MINGGU 5 (31 OKT)<br><span class="tx-badge tx-badge-keluar">Pengeluaran Tunai</span></td>
+                                        <td>RONDA MINGGU 5 (31 OKTOBER 2026)<br><span class="tx-badge tx-badge-keluar">Pengeluaran Cash</span></td>
                                         <td style="color: #c62828; font-weight: 700;">-Rp100.000</td>
                                     </tr>
                                     <tr>
@@ -585,33 +597,23 @@
                                     </tr>
                                     <tr>
                                         <td>25 Okt 2026</td>
-                                        <td>Operasional Ronda Minggu 4<br><span class="tx-badge tx-badge-keluar">Pengeluaran Tunai</span></td>
+                                        <td>Operasional Ronda Minggu 4<br><span class="tx-badge tx-badge-keluar">Pengeluaran Cash</span></td>
                                         <td style="color: #c62828; font-weight: 700;">-Rp100.000</td>
                                     </tr>
                                     <tr>
                                         <td>18 Okt 2026</td>
-                                        <td>Operasional Ronda Minggu 3<br><span class="tx-badge tx-badge-keluar">Pengeluaran Tunai</span></td>
+                                        <td>Operasional Ronda Minggu 3<br><span class="tx-badge tx-badge-keluar">Pengeluaran Cash</span></td>
                                         <td style="color: #c62828; font-weight: 700;">-Rp100.000</td>
                                     </tr>
                                     <tr>
                                         <td>11 Okt 2026</td>
-                                        <td>Operasional Ronda Minggu 2<br><span class="tx-badge tx-badge-keluar">Pengeluaran Tunai</span></td>
+                                        <td>Operasional Ronda Minggu 2<br><span class="tx-badge tx-badge-keluar">Pengeluaran Cash</span></td>
                                         <td style="color: #c62828; font-weight: 700;">-Rp100.000</td>
                                     </tr>
                                     <tr>
                                         <td>05 Okt 2026</td>
-                                        <td>Iuran Bulanan (A5 - Giono)<br><span class="tx-badge tx-badge-masuk">Pemasukan Tunai</span></td>
+                                        <td>Iuran Bulanan (A5 - Giono)<br><span class="tx-badge tx-badge-masuk">Pemasukan Cash</span></td>
                                         <td style="color: #1b5e20; font-weight: 700;">+Rp70.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>04 Okt 2026</td>
-                                        <td>Operasional Ronda Minggu 1<br><span class="tx-badge tx-badge-keluar">Pengeluaran Tunai</span></td>
-                                        <td style="color: #c62828; font-weight: 700;">-Rp100.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>27 Sep 2026</td>
-                                        <td>Operasional Ronda Minggu 4<br><span class="tx-badge tx-badge-keluar">Pengeluaran Tunai</span></td>
-                                        <td style="color: #c62828; font-weight: 700;">-Rp100.000</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -620,10 +622,10 @@
                 </div>
 
                 <div class="finance-footer-actions" style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 1.5rem;">
-                    <a href="https://ctrl-they-cia-vista.trycloudflare.com" target="_blank" class="btn-primary">
+                    <a href="https://special-animated-specifies-jewel.trycloudflare.com" target="_blank" class="btn-primary live-portal-link">
                         <span>🏛️</span> Buka Portal Kas RT Daring &rarr;
                     </a>
-                    <a href="https://ctrl-they-cia-vista.trycloudflare.com" target="_blank" class="btn-secondary">
+                    <a href="https://special-animated-specifies-jewel.trycloudflare.com" target="_blank" class="btn-secondary live-portal-link">
                         <span>📲</span> Masuk / Cek Iuran Saya (WhatsApp OTP) &rarr;
                     </a>
                     <a href="data/finance_summary.json" target="_blank" class="btn-data">
