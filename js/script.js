@@ -208,9 +208,14 @@
 
                 // 5. Update Link Portal jika ada URL aktif
                 if (data.portal_url) {
+                    var targetUrl = data.portal_url;
+                    // Normalisasi: cegah cache alamat trycloudflare lama
+                    if (targetUrl.indexOf('trycloudflare.com') !== -1) {
+                        targetUrl = 'https://ghs.supd2.net';
+                    }
                     var portalLinks = document.querySelectorAll('.live-portal-link');
                     portalLinks.forEach(function(link) {
-                        link.href = data.portal_url;
+                        link.href = targetUrl;
                     });
                 }
             }
