@@ -1,6 +1,6 @@
-// Data Keuangan GHS - Terakhir diperbarui: 2026-11-06 17:51 WIB
+// Data Keuangan GHS - Terakhir diperbarui: 2026-11-09 14:57 WIB
 window.GHS_FINANCE_DATA = {
-  "updated_at": "2026-11-06 17:51 WIB",
+  "updated_at": "2026-11-09 14:57 WIB",
   "portal_url": "https://ghs.supd2.net",
   "saldo_kas": 2357038.0,
   "total_pemasukan": 44950000.0,
