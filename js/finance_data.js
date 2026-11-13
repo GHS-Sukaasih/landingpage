@@ -1,13 +1,13 @@
-// Data Keuangan GHS - Terakhir diperbarui: 2026-11-09 15:00 WIB
+// Data Keuangan GHS - Terakhir diperbarui: 2026-11-13 13:40 WIB
 window.GHS_FINANCE_DATA = {
-  "updated_at": "2026-11-09 15:00 WIB",
+  "updated_at": "2026-11-13 13:40 WIB",
   "portal_url": "https://ghs.supd2.net",
-  "saldo_kas": 2357038.0,
-  "total_pemasukan": 44950000.0,
-  "count_pemasukan": 851,
-  "total_pengeluaran": 42592962.0,
-  "count_pengeluaran": 105,
-  "saldo_cash": 2287038.0,
+  "saldo_kas": 5207038.0,
+  "total_pemasukan": 47900000.0,
+  "count_pemasukan": 891,
+  "total_pengeluaran": 42692962.0,
+  "count_pengeluaran": 106,
+  "saldo_cash": 5207038.0,
   "saldo_digital": 70000.0,
   "warga": {
     "total": 73,
@@ -37,8 +37,8 @@ window.GHS_FINANCE_DATA = {
     },
     {
       "kategori": "Operasional Ronda",
-      "total": 1400000.0,
-      "count": 14
+      "total": 1500000.0,
+      "count": 15
     },
     {
       "kategori": "Acara Warga",
@@ -69,100 +69,100 @@ window.GHS_FINANCE_DATA = {
   "kategori_pemasukan": [
     {
       "kategori": "Iuran Bulanan Warga",
-      "total": 44950000.0,
-      "count": 851
+      "total": 47900000.0,
+      "count": 891
     }
   ],
   "transaksi_terbaru": [
     {
-      "tanggal": "2026-11-04",
-      "jenis": "Pengeluaran",
-      "kategori": "Biaya Keamanan",
-      "uraian": "PEMBAYARAN KEAMANAN",
-      "nominal": 1000000.0,
-      "metode_kas": "Cash",
-      "nama_warga": "Petugas Keamanan"
-    },
-    {
-      "tanggal": "2026-11-04",
-      "jenis": "Pengeluaran",
-      "kategori": "Biaya Kebersihan",
-      "uraian": "PEMBAYARAN SAMPAH",
-      "nominal": 1000000.0,
-      "metode_kas": "Cash",
-      "nama_warga": "Petugas Kebersihan"
-    },
-    {
-      "tanggal": "2026-10-31",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 5 (31 OKTOBER 2026)",
-      "nominal": 100000.0,
-      "metode_kas": "Cash",
-      "nama_warga": null
-    },
-    {
-      "tanggal": "2026-10-31",
+      "tanggal": "2026-11-12",
       "jenis": "Pemasukan",
       "kategori": "Iuran Bulanan Warga",
-      "uraian": "Iuran Bulanan 2026-10 (D4 - BOBI M) - dititipkan ke Ketua RT, di luar serah terima Yusuf",
+      "uraian": "Oktober",
       "nominal": 70000.0,
       "metode_kas": "Cash",
-      "nama_warga": "BOBI M"
+      "nama_warga": "VIRGO"
     },
     {
-      "tanggal": "2026-10-25",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 4",
-      "nominal": 100000.0,
+      "tanggal": "2026-11-12",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Iuran Bulanan 2026-10 - ARIF (C10)",
+      "nominal": 70000.0,
       "metode_kas": "Cash",
-      "nama_warga": null
+      "nama_warga": "ARIF"
     },
     {
-      "tanggal": "2026-10-18",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 3",
-      "nominal": 100000.0,
+      "tanggal": "2026-11-12",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Oktober",
+      "nominal": 70000.0,
       "metode_kas": "Cash",
-      "nama_warga": null
+      "nama_warga": "AGUNG"
     },
     {
-      "tanggal": "2026-10-11",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 2",
-      "nominal": 100000.0,
+      "tanggal": "2026-11-12",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Oktober",
+      "nominal": 70000.0,
       "metode_kas": "Cash",
-      "nama_warga": null
+      "nama_warga": "NASIR"
     },
     {
-      "tanggal": "2026-10-04",
+      "tanggal": "2026-11-07",
       "jenis": "Pengeluaran",
       "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 1",
+      "uraian": "Konsumsi ronda malam Minggu blok D",
       "nominal": 100000.0,
       "metode_kas": "Cash",
-      "nama_warga": null
+      "nama_warga": "Ilham ketua ronda"
     },
     {
-      "tanggal": "2026-09-27",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 4",
-      "nominal": 100000.0,
+      "tanggal": "2026-11-04",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Oktober",
+      "nominal": 70000.0,
       "metode_kas": "Cash",
-      "nama_warga": null
+      "nama_warga": "ERI"
     },
     {
-      "tanggal": "2026-09-20",
-      "jenis": "Pengeluaran",
-      "kategori": "Operasional Ronda",
-      "uraian": "RONDA MINGGU 3",
-      "nominal": 100000.0,
+      "tanggal": "2026-11-04",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Oktober",
+      "nominal": 70000.0,
       "metode_kas": "Cash",
-      "nama_warga": null
+      "nama_warga": "DONI"
+    },
+    {
+      "tanggal": "2026-11-04",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Juli, Agustus, September",
+      "nominal": 210000.0,
+      "metode_kas": "Cash",
+      "nama_warga": "ARIS"
+    },
+    {
+      "tanggal": "2026-11-04",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Oktober",
+      "nominal": 70000.0,
+      "metode_kas": "Cash",
+      "nama_warga": "ARIFIN"
+    },
+    {
+      "tanggal": "2026-11-04",
+      "jenis": "Pemasukan",
+      "kategori": "Iuran Bulanan Warga",
+      "uraian": "Oktober",
+      "nominal": 70000.0,
+      "metode_kas": "Cash",
+      "nama_warga": "ILHAM"
     }
   ],
   "arus_bulanan": [
@@ -193,8 +193,8 @@ window.GHS_FINANCE_DATA = {
     },
     {
       "periode": "2026-11",
-      "pemasukan": 0,
-      "pengeluaran": 2000000.0
+      "pemasukan": 2950000.0,
+      "pengeluaran": 2100000.0
     }
   ]
 };
