@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-11-13 13:43 WIB",
+  "updated_at": "2026-11-13 14:03 WIB",
   "portal_url": "https://ghs.supd2.net",
   "saldo_kas": 5207038.0,
   "total_pemasukan": 47900000.0,
   "count_pemasukan": 891,
   "total_pengeluaran": 42692962.0,
   "count_pengeluaran": 106,
-  "saldo_cash": 5137038.0,
-  "saldo_digital": 70000.0,
+  "saldo_cash": 5067038.0,
+  "saldo_digital": 140000.0,
   "warga": {
     "total": 73,
     "dihuni": 62,
@@ -149,7 +149,7 @@
       "tanggal": "2026-11-04",
       "jenis": "Pemasukan",
       "kategori": "Iuran Bulanan Warga",
-      "uraian": "Oktober",
+      "uraian": "Iuran Bulanan 2026-10 - ARIFIN (E2)",
       "nominal": 70000.0,
       "metode_kas": "Cash",
       "nama_warga": "ARIFIN"
